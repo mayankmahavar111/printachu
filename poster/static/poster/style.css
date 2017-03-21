@@ -1,0 +1,32 @@
+html {
+  background: white url("media/images.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*#student_log{
+	width:500px;
+	height:150px;
+	background-color:#f44336;
+	float:left;
+	margin:400px 0 0 100px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#faculty_log{
+	width:500px;
+	height:150px;
+	background-color:#f44336;
+	float:right;
+	margin:400px 100px 0 0;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+p{
+	text-align:center;
+	margin:20px;
+	margin-top:50px;
+	font-size:40px;
+	color:white;
+}*/

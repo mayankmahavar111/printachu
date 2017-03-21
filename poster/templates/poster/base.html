@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>printachu</title>
+    {% load staticfiles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href=https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<link rel="icon" type="image/png" href="data:image/png;base64,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">
+		<link rel="stylesheet" type="text/css" href={% static 'poster/style.css' %} />
+</head>
+<body>
+<nav class="navbar navbar-inverse" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Printachu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class = "nav navbar-nav">
+                <li class="active">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                            Albums
+                        </a>
+                </li>
+                <li class="">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
+                            Songs
+                        </a>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-left" role="search" method="get" action="#">
+                <div class="form-group">
+                        <input type="text" class="form-control" name="q" value="">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+                            Add Albums
+                        </a>
+                </li>
+                <li class="">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
+                            Logout
+                        </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

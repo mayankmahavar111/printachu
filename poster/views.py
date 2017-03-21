@@ -1,0 +1,24 @@
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+
+
+def index(request):
+    return render(request,'poster/base.html')
+
+def register(request):
+	print 'Hello World'
+	if request.method=='POST':
+		form=UserChangeForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('/poster/login')
+		else:
+			return redirect('/poster/register')
+	else :
+		form=UserChangeForm()
+		args={'form':form}
+		return render(request,'poster/register.html',args)

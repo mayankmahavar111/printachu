@@ -1,0 +1,135 @@
+{% extends 'poster/base.html' %}
+
+{% block body %}
+    <style>
+    .loginform{
+        display: table;
+        position: relative;
+        left: 400px;
+        top: 150px;
+        border-style: solid;
+        border-radius: 15px;
+        padding: 30px;
+        background-color: darkslategray;
+        color: white
+    }
+    .loginbutton{
+        position: relative;
+        left: 100px;
+        background-color: darkslategray;
+        color: white;
+    }
+    .facebook {
+        display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+	width: 120px;
+	height:50px;
+	padding-top: 10px;
+    border: 0px solid #178bb6;
+    border-radius: 8px;
+    background: #3b5998;
+    font-family: 'Open Sans', sans-serif;
+	font-weight:700;
+    color: #ffffff;
+    text-decoration: none;
+	margin-right: 10px;
+}
+    .facebook:hover,
+.facebook:focus {
+    background: #37528c;
+    color: #ffffff;
+    text-decoration: none;
+}
+.facebook:active {
+    background: #1ca4d6;
+}
+.facebook:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+	padding-left: 10px;
+    top: -10px;
+    left: -10px;
+    background: url("http://i.imgur.com/0bcxkOD.png") no-repeat center center #37528c;
+    background-size: 13px 24px;
+	-webkit-border-radius: 8px 0px 0px 8px;
+	-moz-border-radius: 8px 0px 0px 8px;
+	-o-border-radius: 8px 0px 0px 8px;
+	-ms-border-radius: 8px 0px 0px 8px;
+	border-radius: 8px 0px 0px 8px;
+}
+    .google {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+	width: 120px;
+	height:50px;
+	padding-top: 10px;
+    border: 0px solid #178bb6;
+    border-radius: 8px;
+    background: #d34836;
+    font-family: 'Open Sans', sans-serif;
+	font-weight:700;
+    color: #ffffff;
+    text-decoration: none;
+}
+.google:hover,
+.google:focus {
+    background: #c74534;
+    color: #ffffff;
+    text-decoration: none;
+}
+.google:active {
+    background: #1ca4d6;
+}
+.google:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 50px;
+    width: 45px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+	padding-left: 10px;
+    top: -10px;
+    left: -15px;
+    background: url("http://i.imgur.com/GxFF74f.png") no-repeat center center #c74534;
+    background-size: 24px 24px;
+	-webkit-border-radius: 8px 0px 0px 8px;
+	-moz-border-radius: 8px 0px 0px 8px;
+	-o-border-radius: 8px 0px 0px 8px;
+	-ms-border-radius: 8px 0px 0px 8px;
+	border-radius: 8px 0px 0px 8px;
+}
+    .login-options {
+	margin-top: 15px;
+	color: #9c9c9c;
+	margin-bottom: 25px;
+}
+body {
+  background: url(http://www.lanlinglaurel.com/data/out/37/4214905-background-images-for-websites.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+    </style>
+<form method="post" class="loginform">
+                {% csrf_token %}
+    <p>Already have an account?</p>
+                {{ form.as_p }}
+                <button type="submit" class="loginbutton">Login</button>
+    <p style="text-align:center">OR</p>
+    <div class="login-options" style="color:white">Choose one of the following<br>
+    <span style="margin-left: -5px"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
+        <a class="google" href="#"><span style="margin-left: -5px">Gmail</span></a></div>
+
+
+            </form>
+{% endblock %}
