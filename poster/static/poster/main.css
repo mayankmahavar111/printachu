@@ -401,7 +401,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 button,
 .button {
-	margin-bottom: 1.2;
+	margin-bottom: 1.2px;
 }
 
 fieldset {
@@ -1122,8 +1122,6 @@ header .logo a {
 	border: none;
 	width: 96px;
 	height: 20px;
-	background: url("../images/logo.png") no-repeat center;
-	background-size: 96px 20px;
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
@@ -1354,8 +1352,6 @@ header .logo a {
  * ------------------------------------------------------------------- */
 #intro {
 	position: relative;
-	background-image: url(../images/intro-bg.jpg);
-	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center top;
 	-webkit-background-size: cover;
@@ -2218,10 +2214,6 @@ header .logo a {
  * ------------------------------------------------------------------- */
 #download {
 	position: relative;
-	background-image: url(../images/download-bg.jpg);
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center top;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
