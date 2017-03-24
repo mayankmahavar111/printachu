@@ -22,3 +22,7 @@ def register(request):
 		form=UserChangeForm()
 		args={'form':form}
 		return render(request,'poster/register.html',args)
+
+@login_required
+def profile(request):
+	return render(request,'poster/profile.html')
