@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request,'poster/base.html')
+    return render(request,'poster/home.html')
 
 def register(request):
 	print 'Hello World'
@@ -22,3 +22,7 @@ def register(request):
 		form=UserChangeForm()
 		args={'form':form}
 		return render(request,'poster/register.html',args)
+
+@login_required
+def profile(request):
+	return render(request,'poster/profile.html')
