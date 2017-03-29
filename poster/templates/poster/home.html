@@ -31,7 +31,25 @@
    <!-- favicons
 	================================================== -->
 	<link rel="icon" type="image/png" href={%  static "poster/images/ha1.png" %}>
+    <!-- slide.
+	================================================== -->
+     <link rel="stylesheet" type="text/css" href="{% static "poster/demo.css" %}" />
+     <link rel="stylesheet" type="text/css" href="{% static "poster/style1.css" %}" />
+     <script type="text/javascript" src="{% static "poster/js/modernizr.custom.86080.js" %}"></script>
 </head>
+
+<a name="tophere"></a>
+
+ <body id="page">
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span><div><h3></h3></div></li>
+            <li><span>Image 02</span><div><h3></h3></div></li>
+            <li><span>Image 03</span><div><h3></h3></div></li>
+            <li><span>Image 04</span><div><h3></h3></div></li>
+            <li><span>Image 05</span><div><h3></h3></div></li>
+            <li><span>Image 06</span><div><h3></h3></div></li>
+        </ul>
+    </body>
 
 <body id="top" style="margin-top:50%;">
 
@@ -251,7 +269,7 @@
 	            <div class="media-wrap">
 	            	<div class="media animate-this" data-animate="fadeInLeft">
 	            		<div class="fluid-video-wrapper">
-						<img src="file:///C:/Users/lokaksha/Desktop/Elevate10/images/print.jpg" style="height:400px;" />
+						<img src="{% static "poster/images/pri.jpg" %}" style="height:400px;" />
 		               <!--<iframe src="file:///C:/Users/lokaksha/Desktop/Elevate10/images/printachu.png" width="500px" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
 		            </div>
 	            	</div>
@@ -648,7 +666,8 @@
    </footer>
 
    <div id="go-top">
-		<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+		<!--<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>-->
+		<a title="Back to Top" href='#top'><i class="fa fa-long-arrow-up"></i></a>
 	</div>
 
    <!-- preloader
