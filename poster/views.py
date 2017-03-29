@@ -10,6 +10,9 @@ from django.views import  generic
 from django.utils.decorators import method_decorator
 
 
+def test(request):
+	if request.method == "GET":
+		return render(request,'poster/test.html')
 
 def register(request):
 	print 'Hello World'
