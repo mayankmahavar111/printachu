@@ -5,10 +5,11 @@ from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from poster.forms import RegistrationForm
+from django.views.generic import TemplateView
+from django.views import  generic
+from django.utils.decorators import method_decorator
 
 
-def index(request):
-    return render(request,'poster/home.html')
 
 def register(request):
 	print 'Hello World'
@@ -27,3 +28,13 @@ def register(request):
 @login_required
 def profile(request):
 	return render(request,'poster/profile.html')
+
+@method_decorator(login_required, name='dispatch')
+class Profile(TemplateView):
+	template_name = 'poster/profile.html'
+
+
+
+class Index(TemplateView):
+	template_name = 'poster/home.html'
+
