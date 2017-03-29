@@ -18,6 +18,7 @@
         <span style="margin-right: 15px"><input style="width : 150px" type="text" name="firstname" placeholder="First Name" required></span>
         <input style="width: 150px" type="text" name="lastname" placeholder="Last Name" required>
 
+<<<<<<< HEAD
         <br>Email<br>
         <input type="text" name="email" style="width: 315px" required>
 
@@ -38,6 +39,14 @@
             <option value="unknown">Rather Not Say</option>
         </select>
         <br><br><button type="submit">Register</button>
+=======
+you can register here.
+<p>
+    <form method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">register</button>
+>>>>>>> origin/master
     </form>
 </div>
 </div>
