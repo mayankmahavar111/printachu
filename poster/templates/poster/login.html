@@ -118,8 +118,9 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
     </style>
+
+
 <form method="post" class="loginform">
                 {% csrf_token %}
     <p>Already have an account?</p>
@@ -129,7 +130,5 @@ body {
     <div class="login-options" style="color:white">Choose one of the following<br>
     <span style="margin-left: -5px"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
         <a class="google" href="#"><span style="margin-left: -5px">Gmail</span></a></div>
-
-
             </form>
 {% endblock %}
