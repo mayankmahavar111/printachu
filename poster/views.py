@@ -8,7 +8,7 @@ from poster.forms import RegistrationForm
 
 
 def index(request):
-    return render(request,'poster/base.html')
+    return render(request,'poster/home.html')
 
 def register(request):
 	print 'Hello World'

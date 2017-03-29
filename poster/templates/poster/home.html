@@ -1,1 +1,673 @@
-this is a home page.
+{% extends 'poster/base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Printachu</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+    {% load static %}
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'poster/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poster/vendor.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'poster/main.css' %}">
+   <!-- script
+   ================================================== -->
+	<script type = "text/javascript" src={% static 'poster/js/modernizr.js' %} ></script>
+	<script type="text/javascript" src={% static 'poster/js/pace.min.js' %} ></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href={%  static "poster/images/ha1.png" %}>
+</head>
+<a name="tophere"></a>
+
+<body id="top" style="margin-top:50%;">
+
+	<!-- header
+   ================================================== --
+   <header class="main-header">
+
+
+			<div id="header">
+				<div>
+				<a href="index.html" class="logos"><img style="position:relative;" src={%  static "poster/images/ha.png" %} alt=""></a>
+					<ul id="navigation">
+						<li class="menu">
+							<a href="about.html">Shop</a>
+							<ul class="primary">
+								<li>
+									<a href="product.html">Posters</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu">
+							<a href="artist.html">Artist</a>
+							<ul class="primary">
+								<li>
+									<a href="product.html">Our Artists</a>
+								</li>
+								<li>
+									<a style="position:absolute; margin-left:-78px;" href="product.html">Join us</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu">
+							<a href="blog.html">Blog</a>
+						</li>
+						<li>
+							<a href="contact.html">Info</a>
+						</li>
+						<li>
+							<a style="position:absolute; height:17px; width:17px; margin:-13px;" href="login.html"><img alt="Login" title="Login" src={% static "poster/images/login-icon-3048.png"%} /></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+</header>
+
+
+	<!-- main content wrap
+   ================================================== -->
+   <div id="main-content-wrap">
+
+
+		<!-- main content wrap
+   	================================================== -->
+   	<svg height="669" width="1380">
+  <circle cx="690" cy="92" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="50%" y="14.5%" color="black" text-anchor="middle" font-size="26px">Anime</text>
+
+  <circle cx="690" cy="583" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="50%" y="89%" color="black" text-anchor="middle" font-size="26px">Quotes</text>
+
+  <circle cx="422" cy="185" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="30.5%" y="29.5%" color="black" text-anchor="middle" font-size="26px">Sports</text>
+
+  <circle cx="958" cy="185" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="69.5%" y="29.5%" color="black" text-anchor="middle" font-size="26px">Movies</text>
+
+  <circle cx="422" cy="475" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="30.5%" y="71%" color="black" text-anchor="middle" font-size="26px">Nature</text>
+
+  <circle cx="958" cy="475" r="60" stroke="black" stroke-width="3" fill="powderblue"></circle>
+  <text x="69.5%" y="71%" color="black" text-anchor="middle" font-size="26px">People</text>
+
+  <ellipse cx="690" cy="335" rx="250" ry="160" stroke="black" fill="powderblue" stroke-width="3"></ellipse>
+  </svg>
+
+
+		<!-- features
+   	================================================== -->
+		<section id="features">
+
+			<div class="row section-intro group animate-this">
+	   		<div class="col-twelve with-bottom-line">
+
+	   			<h2 class="">Posters You'll Love.</h2>
+
+	   			<p class="lead">Lorem ipsum Tempor do Excepteur nulla aute deserunt reprehenderit aute commodo aliquip laboris velit eu esse exercitation ex fugiat pariatur aute consequat. Lorem ipsum Fugiat mollit quis qui. Lorem ipsum Duis Excepteur Duis magna fugiat incididunt qui id quis dolor nisi irure proident labore ut in incididunt eiusmod est anim.</p>
+
+	   		</div>
+	   	</div>
+
+			<div class="row features-wrap">
+
+				<div class="features-list block-1-3 block-s-1-2 block-tab-full">
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+					<div class="bgrid feature animate-this">
+
+						<span class="feature-count">Sherlock</span>
+
+					   <div class="feature-content">
+
+
+							<img src="https://s-media-cache-ak0.pinimg.com/736x/92/50/00/9250009d01c62fd86ec7d2b9d8be9ce4.jpg"\>
+
+						</div>
+
+					</div> <!-- /bgrid -->
+
+				</div> <!-- /features-list -->
+
+			</div> <!-- /features-wrap -->
+
+		</section> <!-- /features -->
+
+
+		<!-- infos
+   	================================================== -->
+   	<section id="infos">
+
+   		<div class="info-entry">
+
+   			<div class="half-grey"></div>
+
+   			<div class="row info-entry-content">
+
+   				<div class="media-wrap">
+   					<div class="media animate-this"  data-animate="fadeInRight">
+   						<img src="http://www.dafenoilpaintings.com/images/pictures/knife/kp167.jpg" alt="">
+   					</div>
+   				</div>
+
+   				<div class="col-six text-part">
+
+   					<h5 class="animate-this" data-animate="fadeInLeft">Some Cool Stuff</h5>
+   					<h2 class="animate-this" data-animate="fadeInLeft">Paintings</h2>
+
+   					<p class="animate-this" data-animate="fadeInLeft">Lorem ipsum Sunt adipisicing adipisicing esse exercitation consequat sed irure commodo cupidatat aute ea adipisicing consectetur nulla consequat irure consectetur veniam sit sit qui reprehenderit officia sunt nulla elit nisi proident.</p>
+
+   					<a href="#" class="button animate-this" data-animate="fadeInLeft">Learn More</a>
+
+   				</div>
+
+   			</div> <!-- /info-entry-content -->
+
+   		</div> <!-- /info-entry -->
+
+   		<div class="info-entry">
+
+   			<div class="half-grey"></div>
+
+   			<div class="row info-entry-content">
+
+	            <div class="media-wrap">
+	            	<div class="media animate-this" data-animate="fadeInLeft">
+	            		<div class="fluid-video-wrapper">
+						<img src="file:///C:/Users/lokaksha/Desktop/Elevate10/images/print.jpg" style="height:400px;" />
+		               <!--<iframe src="file:///C:/Users/lokaksha/Desktop/Elevate10/images/printachu.png" width="500px" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+		            </div>
+	            	</div>
+	   			</div>
+
+	   			<div class="col-six text-part">
+
+   					<h5 class="animate-this" data-animate="fadeInRight">Our Journey...</h5>
+   					<h2 class="animate-this" data-animate="fadeInRight">The History of Printachu</h2>
+
+   					<p class="animate-this" data-animate="fadeInRight">Lorem ipsum Sunt adipisicing adipisicing esse exercitation consequat sed irure commodo cupidatat aute ea adipisicing consectetur nulla consequat irure consectetur veniam sit sit qui reprehenderit officia sunt nulla elit nisi proident.</p>
+
+   					<a href="#" class="button animate-this" data-animate="fadeInRight">Learn More</a>
+
+   				</div>
+
+   			</div> <!-- /info-entry-content -->
+
+   		</div> <!-- /info-entry -->
+
+   	</section> <!-- infos -->
+
+
+		<!-- stats
+   	================================================== --
+   	<section id="stats" class="count-up">
+
+			<div class="row">
+				<div class="col-twelve">
+
+					<div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-pencil-ruler"></i>
+							</div>
+
+							<h3 class="stat-count">110</h3>
+
+							<h5 class="stat-title">
+								Awesome Projects
+							</h5>
+
+						</div>
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-location-user"></i>
+							</div>
+
+							<h3 class="stat-count">9050</h3>
+
+							<h5 class="stat-title">
+								Clients Served
+							</h5>
+
+						</div>
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-rewards-medal-1"></i>
+							</div>
+
+							<h3 class="stat-count">210</h3>
+
+							<h5 class="stat-title">
+								Awards Received
+							</h5>
+
+						</div>
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-alien"></i>
+							</div>
+
+							<h3 class="stat-count">123</h3>
+
+							<h5 class="stat-title">
+								Crazy Ideas
+							</h5>
+
+						</div>
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-coffee-mug"></i>
+							</div>
+
+							<h3 class="stat-count">1500</h3>
+
+							<h5 class="stat-title">
+								Coffee Cups
+							</h5>
+
+						</div>
+
+						<div class="bgrid stat">
+
+							<div class="icon-part">
+								<i class="icon-hourglass"></i>
+							</div>
+
+							<h3 class="stat-count">7200</h3>
+
+							<h5 class="stat-title">
+								Hours
+							</h5>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</section> <!-- /stats -->
+
+
+		<!-- pricing
+   	================================================== -->
+		<section id="pricing">
+
+	   	<div class="row section-intro animate-this">
+	   		<div class="col-twelve with-bottom-line">
+
+	   			<h2>Recommended Posters.</h2>
+
+	   			<p class="lead">Lorem ipsum Tempor do Excepteur nulla aute deserunt reprehenderit aute commodo aliquip laboris velit eu esse exercitation ex fugiat pariatur aute consequat. Lorem ipsum Fugiat mollit quis qui. Lorem ipsum Duis Excepteur Duis magna fugiat incididunt qui id quis dolor nisi irure proident labore ut in incididunt eiusmod est anim.</p>
+
+	   		</div>
+	   	</div>
+
+	   	<div class="row pricing-content">
+
+	         <div class="pricing-tables block-1-3  group">
+
+	            <div class="bgrid animate-this">
+
+	            	<div class="price-block">
+
+	            		<div class="top-part">
+
+		            		<h3 class="plan-title">Guardians of the Galaxy</h3>
+			               <p class="plan-price"><sup>Rs.</sup>130</p>
+		            	</div>
+
+		               <div class="bottom-part">
+								<img src="http://www.panicposters.com/media/catalog/product/cache/1/image/f63dc5ec28f3175f8a7f615bd217eb71/p/p/pp32769-friends-milkshake-poster.jpg"/>
+			               <a class="button large" href="">BUY</a>
+
+		            	</div>
+
+	            	</div>
+
+				   </div> <!-- /bgrid -->
+
+	            <div class="bgrid animate-this">
+
+	            	<div class="price-block primary" data-info="popular">
+
+	            		<div class="top-part">
+
+		            		<h3 class="plan-title">Naruto</h3>
+			               <p class="plan-price"><sup>Rs.</sup>150</p>
+
+		            	</div>
+
+		               <div class="bottom-part">
+
+		            		<!--<ul class="features">
+			                  <li><strong>5GB</strong> Storage</li>
+			                  <li><strong>15GB</strong> Bandwidth</li>
+			                  <li><strong>7</strong> Databases</li>
+			                  <li><strong>40</strong> Email Accounts</li>
+			               </ul>-->
+								<img src="http://www.panicposters.com/media/catalog/product/cache/1/image/f63dc5ec28f3175f8a7f615bd217eb71/p/p/pp32769-friends-milkshake-poster.jpg"/>
+
+
+			               <a class="button large" href="">buy</a>
+
+		            	</div>
+
+	            	</div>
+
+				  </div> <!-- /bgrid -->
+
+	           <div class="bgrid animate-this">
+
+	               <div class="price-block">
+
+	            		<div class="top-part">
+
+		            		<h3 class="plan-title">Iron Man</h3>
+			               <p class="plan-price"><sup>Rs.</sup>200</p>
+
+		            	</div>
+
+							<div class="bottom-part">
+
+		            		<!--<ul class="features">
+			                  <li><strong>10GB</strong> Storage</li>
+			                  <li><strong>30GB</strong> Bandwidth</li>
+			                  <li><strong>15</strong> Databases</li>
+			                  <li><strong>60</strong> Email Accounts</li>
+			               </ul>-->
+								<img src="http://www.panicposters.com/media/catalog/product/cache/1/image/f63dc5ec28f3175f8a7f615bd217eb71/p/p/pp32769-friends-milkshake-poster.jpg"/>
+
+			               <a class="button large" href="">buy</a>
+
+		            	</div>
+
+	            	</div>
+
+				   </div> <!-- /bgrid -->
+
+	         </div> <!-- /pricing-tables -->
+
+	      </div> <!-- /pricing-content -->
+
+	   </section> <!-- Pricing -->
+
+
+	   <!-- testimonials
+   	================================================== -->
+	   <section id="testimonials">
+	   	<div class="row testimonial-content">
+	   		<div class="col-twelve">
+
+	   			<h2 class="h01 animate-this">
+                  Hear What Our Customers Say.
+               </h2>
+
+					<div id="testimonial-slider" class="flexslider animate-this">
+						<ul class="slides">
+						   <li>
+							  	<p>&ldquo;Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.&rdquo;</p>
+							  	<p class="author-info">&mdash; Steve Jobs</p>
+							</li>
+							<li>
+								<p>&ldquo;Good design is as little design as possible. Less, but better - because it concentrates on the essential aspects, and the products are not burdened with non-essentials. Back to purity, back to simplicity..&rdquo;</p>
+								<p class="author-info">&mdash; Dieter Rams</p>
+							</li>
+							<li>
+							  	<p>&ldquo;A fundamental part of that is making mistakes together. There's no learning without trying lots of ideas and failing lots of times.&rdquo;</p>
+							  	<p class="author-info">&mdash; Jony Ive</p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="flexslider-controls animate-this">
+					   <ul class="flex-control-nav">
+					      <li><img src="images/customer01.jpg" alt=""></li>
+					      <li><img src="images/customer02.jpg" alt=""></li>
+					      <li><img src="images/customer03.jpg" alt=""></li>
+					   </ul>
+					</div>
+
+	   		</div>
+	   	</div>
+	   </section> <!-- /testimonials -->
+
+
+	   <!-- download
+   	================================================== -->
+   	<section id="download">
+
+	   	<div class="overlay"></div>
+
+	   	<div class="row download-content" >
+	   		<div class="col-twelve">
+
+					<div class="text-part">
+						<h2 class="animate-this">Become an INSIDER.</h2>
+
+			   		<p class="lead animate-this">Lorem ipsum Tempor do Excepteur nulla aute deserunt reprehenderit aute commodo aliquip laboris velit eu esse exercitation ex fugiat pariatur aute consequat. Lorem ipsum Fugiat mollit quis qui. Lorem ipsum Duis Excepteur Duis magna fugiat incididunt qui id quis dolor nisi irure proident labore ut in incididunt eiusmod est anim.</p>
+					</div>
+
+			   	<a class="button large animate-this" href="#">
+			         Join Now
+			      </a>
+
+	   		</div>
+	   	</div>
+   	</section> <!-- /download -->
+
+
+	   <!-- subscribe
+   	================================================== -->
+  		<section id="subscribe">
+
+         <div class="row subscribe-content">
+            <div class="col-twelve">
+
+               <h2 class="h01 animate-this">Stay upto date, join our newsletter</h2>
+               <form id="mc-form" class="group" novalidate="true" autocomplete="off">
+
+               	<div class="row">
+               		<div class="col-eight tab-full left animate-this" data-animate="fadeInLeft">
+			   				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter Your Email" required="">
+			   			</div>
+
+				   		<div class="col-four tab-full right animate-this"  data-animate="fadeInRight">
+				   			<input type="submit" value="Get Notified" name="subscribe" class="button large">
+				   		</div>
+               	</div> <!-- /row -->
+
+               	<label for="mce-EMAIL" class="subscribe-message"></label>
+
+					</form>
+
+            </div>
+         </div>
+
+      </section> <!-- /subscribe -->
+
+   </div> <!-- /main-content-wrap -->
+
+
+   <!-- footer
+	================================================== -->
+	<footer id="main-footer" style="background-color:black">
+
+   	<div class="footer-social-wrap">
+   		<div class="row">
+
+	         <ul class="footer-social-list">
+	            <li><a href="#">
+	             	<i class="fa fa-facebook-square"></i>
+	            </a></li>
+	            <li><a href="#">
+	              	<i class="fa fa-twitter"></i>
+	            </a></li>
+              <li><a href="#">
+	              	<i class="fa fa-google-plus"></i>
+	            </a></li>
+	            <li><a href="#">
+	              	<i class="fa fa-instagram"></i>
+	            </a></li>
+	         </ul>
+
+			</div>
+   	</div> <!-- /footer-social-wrap -->
+
+	   <div class="footer-info-wrap">
+
+	   	<div class="row footer-info">
+
+		  		<div class="col-four tab-full">
+		  			<h4><i class="icon-location-map-1"></i> Where to Find Us</h4>
+
+		  			<p>
+		         Room no. 37, 3rd Block<br>
+		         NITK Hostels<br>
+		         NITK
+		         </p>
+		  		</div>
+
+		   	<div class="col-four tab-full collapse">
+	   			<h4><i class="icon-phone-incoming"></i> Get In Touch</h4>
+
+	   			<p>someone@printachu.com<br>
+				   	info@printachu.com <br>
+				   	Phone: (+91) 555 2424
+				   </p>
+	   		</div>
+
+	   		<div class="col-four tab-full">
+	   			<h4><i class="icon-organization-hierarchy-3"></i> Company Links</h4>
+
+				   <ul class="footer-link-list">
+				   	<li><a href="#">Company Journal</a></li>
+				   	<li><a href="#">Product Support</a></li>
+				   	<li><a href="#">Privacy Policy</a></li>
+				   </ul>
+	   		</div>
+
+		  	</div>
+	   </div> <!-- /footer-info-wrap -->
+
+	   <div class="footer-bottom">
+
+	   	<div class="copyright">
+		     	<span>© Copyright ....... 2016.</span>
+		     	<span>Design by <a href="http://www.styleshout.com/">Printachu Tech Team</a></span>
+		   </div>
+   	</div>
+
+   </footer>
+
+   <div id="go-top">
+		<!--<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>-->
+		<a title="Back to Top" href='#top'><i class="fa fa-long-arrow-up"></i></a>
+	</div>
+
+   <!-- preloader
+   ================================================== -->
+   <div id="preloader">
+    	<div id="loader"></div>
+   </div>
+
+   <!-- Java Script
+   ================================================== -->
+   <script type = "text/javascript" src={% static "poster/js/jquery-2.1.3.min.js" %}></script>
+   <script type = "text/javascript" src={% static "poster/js/plugins.js" %}></script>
+   <script type = "text/javascript" src={% static "poster/js/main.js" %}></script>
+	<!-- Share
+   ================================================== -->
+   <a href="https://www.facebook.com/Printachu/" target="_blank"><img alt="Like us on Facbook" title="Like us on Facbook" src="https://lh3.googleusercontent.com/ZZPdzvlpK9r_Df9C3M7j1rNRi7hhHRvPhlklJ3lfi5jk86Jd1s0Y5wcQ1QgbVaAP5Q=w300" width="40" height="40" style="position:fixed; left:0;    bottom:0;    margin-left:50px;    padding:5px;    height:50px; width:50px; z-index:9999;" class="sfcm sfsi_wicon" effect="fade_in"></a>
+   <a href="https://www.facebook.com/Printachu/" target="_blank"><img alt="Follow us on Instagram" title="Follow us on Instagram" src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" width="40" height="40" style="position:fixed; left:0;    bottom:0;    margin:0;    padding:5px;    height:50px; width:50px;  z-index:9999;" class="sfcm sfsi_wicon" effect="fade_in"></a>
+</body>
+</html>
+{% endblock %}
