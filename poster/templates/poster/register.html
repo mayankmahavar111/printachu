@@ -8,29 +8,34 @@
         .registerform > input{
             margin-bottom : 15px;
             }
+         .registerform > select{
+            margin-bottom : 15px;
+            }
     </style>
 </head>
 <body>
+{% csrf_token %}
 <div class="container">
 <div class="jumbotron" style="margin: 0px 330px 44px 240px">
-    <form method="post" class="registerform">
+    {% csrf_token %}
+    <form action="" method="post" class="registerform">
+        {% csrf_token %}
         Name<br>
-        <span style="margin-right: 15px"><input style="width : 150px" type="text" name="firstname" placeholder="First Name" required></span>
+        <span style="margin-right: 15px"><input style="width : 150px " type="text" name="firstname" placeholder="First Name" required></span>
         <input style="width: 150px" type="text" name="lastname" placeholder="Last Name" required>
-
-<<<<<<< HEAD
+        {% csrf_token %}
         <br>Email<br>
         <input type="text" name="email" style="width: 315px" required>
-
+        {% csrf_token %}
         <br>Create a password<br>
         <input type="password" minlength="8" name="password" style="width: 315px" required placeholder="Minimum 8 characters">
-
+        {% csrf_token %}
         <br>Confirm your password<br>
         <input type="password" name="password" required style="width: 315px" placeholder="Re-enter the same password">
-
+        {% csrf_token %}
         <br>Birthday<br>
         <input type="date" style="width: 150px" name="dateofbirth">
-
+        {% csrf_token %}
         <br>Gender<br>
         <select  name="gender" style="width: 150px" >
             <option value="male">Male</option>
@@ -38,16 +43,15 @@
             <option value="other">Other</option>
             <option value="unknown">Rather Not Say</option>
         </select>
+        {% csrf_token %}
+        <br>Join as<br>
+        <select name="usertype" style="width: 150px">
+            <option value="artist">An Artist</option>
+            <option value="customer">Customer</option>
+        </select>
+
         <br><br><button type="submit">Register</button>
-=======
-you can register here.
 <p>
-    <form method="post">
-            {% csrf_token %}
-            {{ form.as_p}}
-            <button type="submit">register</button>
->>>>>>> origin/master
-    </form>
 </div>
 </div>
 </body>
