@@ -1,6 +1,30 @@
 this is test.
-< Form  action = "/ your-name /"  method = "post" >
-    < label  for = "your_name" > Your name: </ label >
-    < input  id = "your_name"  type = "text"  name = "your_name"  value = " {{  Current_name  }} " >
-    < input  type = "submit"  value = "OK" >
-</ Form >
+{% extends 'poster/base.html' %}
+{% block body %}
+
+<form id="test" method="post">
+    {%csrf_token%}
+    <label > Your name: </label >
+    <input  id = "your_name"  type = "text"  name = "x"   >
+    <input  id = "last_name"  type = "text"  name = "y"   >
+    <button type="submit">ok</button>
+</form>
+{% endblock %}
+<script type="text/javascript">
+    $(document).on('submit','#test',function(e){
+        e.preventDefault();
+
+    $.ajax({
+        type:"POST",
+        url:'/poster/test2'
+        data:{
+            your_name:$('#your_name').val(),
+            last_name:$('#last_name').val(),
+            csrfmiddlewaretoken:$('input[your_name=csrfmiddlewaretoken]').val()
+        },
+        sucess.function(){
+            alert("test succesfull");
+        }
+        });
+    });
+</script>
