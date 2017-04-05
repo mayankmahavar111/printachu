@@ -8,25 +8,63 @@ from poster.forms import RegistrationForm
 from django.views.generic import TemplateView
 from django.views import  generic
 from django.utils.decorators import method_decorator
+from django.contrib.auth.models import User,UserManager
+from django.contrib.auth import authenticate,login
+from .models import UserProfile
 
 
-def test(request):
-	if request.method == "GET":
-		return render(request,'poster/test.html')
+def saveRegister(request):
+	if request.method == "POST":
+		print request.POST
+		first_name=request.POST.get('firstname')
+		last_name=request.POST.get('lastname')
+		email=request.POST.get('email')
+		password1=request.POST.get('password1')
+		password2=request.POST.get('password2')
+		dob=request.POST.get('dateofbirth')
+		gender=request.POST.get('gender')
+		type=request.POST.get('usertype')
+		user=User.objects.create(
+			username=first_name,
+			email=email,
+			password=password1,
+		)
+		user.set_password(password1)
+		user.save()
+		user=authenticate(username=first_name,password=password1)
+		login(request,user)
+		print user
+		if user is not None:
 
+			x=UserProfile.objects.create(
+				user=first_name,
+				first_name=first_name,
+				last_name=last_name,
+				email=email,
+				date_of_birth=dob,
+				join_as=type,
+				gender=gender
+			)
+			x.save()
+			return redirect('/poster/profile')
+		print first_name,last_name,email,password1,password2,dob,gender,type
+		return redirect('/poster/register')
+	else:
+		print "hello world"
+		return render(request,'poster/register.html')
+
+def test2(request):
+	user=authenticate(username='testing',password='user@1234')
+	if user is not None:
+		login(request,user)
+	return render(request,'poster/test.html')
+
+def test(request,your_name,last_name):
+
+		print your_name,last_name
+		return redirect('/poster/test2')
 def register(request):
-	print 'Hello World'
-	if request.method=='POST':
-		form=RegistrationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('/poster/login')
-		else:
-			return redirect('/poster/register')
-	else :
-		form=RegistrationForm()
-		args={'form':form}
-		return render(request,'poster/register.html',args)
+		return render(request,'poster/register.html')
 
 @login_required
 def profile(request):
