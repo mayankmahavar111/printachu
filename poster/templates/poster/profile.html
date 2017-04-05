@@ -1,6 +1,19 @@
-{% extends 'poster/base.html' %}
+
+	{%extends 'poster/base.html'%}
 {% block body %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+	{%block title%}
+    <title>{{user.first_name}} {{user.last_name}} - Printachu</title>
+    {% endblock%}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{%static 'poster/profilecss.css' %}">
+</html>
 
-{{user}}
-
+<body>
+<div class="topbar">
+</div>
+</body>
 {% endblock %}

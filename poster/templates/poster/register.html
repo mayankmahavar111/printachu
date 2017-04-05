@@ -1,10 +1,16 @@
-<html>
-<head>
+{% extends 'poster/base.html' %}
+
+{% block body%}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{
-            margin-top : 50px;
-            }
+        body {
+  background: url(http://www.lanlinglaurel.com/data/out/37/4214905-background-images-for-websites.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
         .registerform > input{
             margin-bottom : 15px;
             }
@@ -12,47 +18,42 @@
             margin-bottom : 15px;
             }
     </style>
-</head>
-<body>
+
 {% csrf_token %}
 <div class="container">
-<div class="jumbotron" style="margin: 0px 330px 44px 240px">
-    {% csrf_token %}
+<div class="jumbotron" style="margin: 0% 25% 5% 20%">
     <form action="" method="post" class="registerform">
-        {% csrf_token %}
         Name<br>
-        <span style="margin-right: 15px"><input style="width : 150px " type="text" name="firstname" placeholder="First Name" required></span>
-        <input style="width: 150px" type="text" name="lastname" placeholder="Last Name" required>
-        {% csrf_token %}
+        <span style="margin-right: 5%"><input style="width : 35% " type="text" name="firstname" placeholder="First Name" required></span>
+        <input style="width: 35%" type="text" name="lastname" placeholder="Last Name" required>
+
         <br>Email<br>
-        <input type="text" name="email" style="width: 315px" required>
-        {% csrf_token %}
+        <input type="text" name="email" style="width: 75%" required>
+        
         <br>Create a password<br>
-        <input type="password" minlength="8" name="password" style="width: 315px" required placeholder="Minimum 8 characters">
-        {% csrf_token %}
+        <input type="password" minlength="8" name="password" style="width: 75%" required placeholder="Minimum 8 characters">
+        
         <br>Confirm your password<br>
-        <input type="password" name="password" required style="width: 315px" placeholder="Re-enter the same password">
-        {% csrf_token %}
-        <br>Birthday<br>
-        <input type="date" style="width: 150px" name="dateofbirth">
-        {% csrf_token %}
+        <input type="password" name="password" required style="width: 75%" placeholder="Re-enter the same password">
+        
+        <br>Date Of Birth<br>
+        <input type="date" style="width: 35%" name="dateofbirth">
+        
         <br>Gender<br>
-        <select  name="gender" style="width: 150px" >
+        <select  name="gender" style="width: 35%" >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
             <option value="unknown">Rather Not Say</option>
         </select>
-        {% csrf_token %}
+        
         <br>Join as<br>
-        <select name="usertype" style="width: 150px">
+        <select name="usertype" style="width: 35%">
             <option value="artist">An Artist</option>
             <option value="customer">Customer</option>
         </select>
 
         <br><br><button type="submit">Register</button>
-<p>
 </div>
 </div>
-</body>
-</html>
+{% endblock %}
