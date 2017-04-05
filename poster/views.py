@@ -8,7 +8,10 @@ from poster.forms import RegistrationForm
 from django.views.generic import TemplateView
 from django.views import  generic
 from django.utils.decorators import method_decorator
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,UserManager
+from django.contrib.auth import authenticate,login
+from .models import UserProfile
+
 
 def saveRegister(request):
 	if request.method == "POST":
@@ -21,26 +24,40 @@ def saveRegister(request):
 		dob=request.POST.get('dateofbirth')
 		gender=request.POST.get('gender')
 		type=request.POST.get('usertype')
-		User.objects.create(
-			username= first_name,
+		user=User.objects.create(
+			username=first_name,
 			email=email,
 			password=password1,
 		)
+		user.set_password(password1)
+		user.save()
+		user=authenticate(username=first_name,password=password1)
+		login(request,user)
+		print user
+		if user is not None:
+
+			x=UserProfile.objects.create(
+				user=first_name,
+				first_name=first_name,
+				last_name=last_name,
+				email=email,
+				date_of_birth=dob,
+				join_as=type,
+				gender=gender
+			)
+			x.save()
+			return redirect('/poster/profile')
 		print first_name,last_name,email,password1,password2,dob,gender,type
-		return redirect('/poster/test2')
+		return redirect('/poster/register')
 	else:
 		print "hello world"
 		return render(request,'poster/register.html')
 
 def test2(request):
-	if request.method == "POST":
-		print request.POST
-		x=request.POST.get('x')
-		y=request.POST.get('y')
-		print x,y
-		return redirect('/poster')
-	else:
-		return render(request,'poster/test.html')
+	user=authenticate(username='testing',password='user@1234')
+	if user is not None:
+		login(request,user)
+	return render(request,'poster/test.html')
 
 def test(request,your_name,last_name):
 
