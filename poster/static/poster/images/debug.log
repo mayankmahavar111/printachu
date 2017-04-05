@@ -1,0 +1,3 @@
+[0405/195101.066:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Coldold\Reports\Dump: The system cannot find the path specified. (0x3)
+[0405/195101.086:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0405/195101.088:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Coldold\Reports\Dump: The system cannot find the path specified. (0x3)
