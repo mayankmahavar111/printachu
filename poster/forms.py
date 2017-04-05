@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 class RegistrationForm(UserCreationForm):
-    email=forms.EmailField(required=True,label='Email ID: - ',initial='email')
+    email=forms.EmailField(required=True,label='Your Email ID: - ',initial='email')
     first_name=forms.CharField(required=True,label='Your Name:')
     username=forms.CharField(required=True,label='Usesrname ',initial='username')
     dob=forms.DateField(required=True,label='Date of Birth')
