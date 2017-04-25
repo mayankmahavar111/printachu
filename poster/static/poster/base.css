@@ -833,14 +833,15 @@ textarea {
 #header {
 	margin: 0;
 	padding: 0;
+	background-color: #000000;
 	position: relative;
 	width: 100%;
-	opacity: 0;
-    filter: alpha(opacity=0);
+	opacity: 0.2;
+    filter: alpha(opacity=20);
 }
 #header:hover {
-	opacity: 1.0;
-    filter: alpha(opacity=100);
+	opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 #header div {
 	margin: 0 auto;
