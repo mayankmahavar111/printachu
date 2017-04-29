@@ -11,7 +11,23 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User,UserManager
 from django.contrib.auth import authenticate,login
 from .models import UserProfile
+from django.core.mail import send_mail,mail_managers
+from django.conf import settings
 
+def mail(request):
+	#subject='testing'
+	#from_email=settings.EMAIL_HOST_USER
+	#to_email=from_email
+
+	#send_mail(
+	#	subject,
+	#	'Is it working',
+	#	from_email,
+	#	[to_email],
+	#	fail_silently=False
+	#)
+
+	return redirect('/poster/test2')
 
 def saveRegister(request):
 	if request.method == "POST":
@@ -32,10 +48,10 @@ def saveRegister(request):
 		user.set_password(password1)
 		user.save()
 		user=authenticate(username=first_name,password=password1)
-		login(request,user)
+
 		print user
 		if user is not None:
-
+			login(request, user)
 			x=UserProfile.objects.create(
 				user=first_name,
 				first_name=first_name,

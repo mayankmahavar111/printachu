@@ -8,7 +8,7 @@ urlpatterns=[
     url(r'logout/$',logout,{'template_name': 'poster/logout.html'}),
     #url(r'register/$', views.register, name='register'),
     url(r'^profile/$', views.Profile.as_view()),
-    url(r'^test/(?P<your_name>[a-zA-z]{1,10})/(?P<last_name>[a-zA-z]{1,10})/$',views.test),
+    url(r'^test/$',views.mail),
     url(r'^test2/$',views.test2),
     url(r'^register/$',views.saveRegister,name='saveRegister')
 ]
