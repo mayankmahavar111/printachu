@@ -829,18 +829,19 @@ textarea {
 	text-align: center;
 }
 
-/*Extra/
+/*Extra*/
 #header {
 	margin: 0;
 	padding: 0;
+	background-color: #000000;
 	position: relative;
 	width: 100%;
-	opacity: 0;
-    filter: alpha(opacity=0);
+	opacity: 0.2;
+    filter: alpha(opacity=20);
 }
 #header:hover {
-	opacity: 1.0;
-    filter: alpha(opacity=100);
+	opacity: 0.5;
+    filter: alpha(opacity=50);
 }
 #header div {
 	margin: 0 auto;
@@ -873,7 +874,7 @@ textarea {
 }
 #header div ul li {
 	display: inline-block;
-	*float: left; /* Needed for IE7 and old versions
+	*float: left; /* Needed for IE7 and old versions */
 	margin: 0 35px;
 	padding: 0;
 	position: relative;
@@ -933,4 +934,3 @@ textarea {
 	margin: 0;
 	padding: 0;
 }
-*/
