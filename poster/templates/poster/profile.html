@@ -1,11 +1,10 @@
-
-	{%extends 'poster/base.html'%}
+{%extends 'poster/base.html'%}
 {% block body %}
 <!DOCTYPE html>
 <html>
 {% load static %}
 	{%block title%}
-    <title>{{user.first_name}} {{user.last_name}} - Printachu</title>
+    <title>{{x.first_name}} {{x.last_name}} - Printachu</title>
     {% endblock%}
     <meta charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
@@ -14,6 +13,12 @@
 
 <body>
 <div class="topbar">
+</div>
+<div>
+    {% if artist.profile_pic == ''  %}
+    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
+    {% else %}
+    {% endif %}
 </div>
 </body>
 {% endblock %}

@@ -16,4 +16,24 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user
 
+class CustomerProfile(models.Model):
+    user=models.ForeignKey(User)
+    Curr_status=models.CharField(default="",max_length=100)
+
+    def __str__(self):
+        return self.user
+
+class ArtistProfile(models.Model):
+    user=models.ForeignKey(User)
+    name=models.CharField(max_length=50,default='')
+    profile_pic=models.ImageField(default='')
+    Description=models.CharField(max_length=400,default='')
+    designs_no=models.IntegerField(default=0)
+    cash_rec=models.IntegerField(default=0)
+    cash_nrec=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+
 

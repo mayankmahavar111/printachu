@@ -10,7 +10,7 @@ from django.views import  generic
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User,UserManager
 from django.contrib.auth import authenticate,login
-from .models import UserProfile
+from .models import UserProfile,ArtistProfile,CustomerProfile
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
 
@@ -62,7 +62,15 @@ def saveRegister(request):
 				gender=gender
 			)
 			x.save()
-			return redirect('/poster/profile')
+			if x.join_as=="artist":
+				artist=ArtistProfile.objects.create(
+					user=request.user,
+					name=x.first_name
+				)
+				artist.save()
+				return redirect('/poster/profile')
+			else:
+				return redirect('/poster/')
 		print first_name,last_name,email,password1,password2,dob,gender,type
 		return redirect('/poster/register')
 	else:
@@ -84,13 +92,33 @@ def register(request):
 
 @login_required
 def profile(request):
-	return render(request,'poster/profile.html')
 
+	if request.method=="POST":
+		pass
+	else:
+		x=UserProfile.objects.get(user=request.user)
+		if x.join_as=="artist":
+			artist=ArtistProfile.objects.get(user=request.user)
+			#print "Hello World"
+			#print x.first_name,x.last_namex
+			args={
+				'x':x,
+				'artist':artist
+			}
+			return render(request,'poster/profile.html',args)
+		else:
+			return redirect('/poster')
 @method_decorator(login_required, name='dispatch')
 class Profile(TemplateView):
 	template_name = 'poster/profile.html'
 
 
+@login_required()
+def createprofile(request):
+	if request.method=="POST":
+		pass
+	else:
+		return render(request,'poster/buildprofile.html')
 
 class Index(TemplateView):
 	template_name = 'poster/home.html'

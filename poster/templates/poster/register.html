@@ -24,23 +24,23 @@
 <div class="jumbotron" style="margin: 0% 25% 5% 20%">
     {% csrf_token %}
     <form action="" method="post" class="registerform" id="register">
-
+    {% csrf_token %}
         Name<br>
         <span style="margin-right: 5%"><input id="first_name" style="width : 35% " type="text" name="firstname" placeholder="First Name" required></span>
         <input style="width: 35%" id="last_name" type="text" name="lastname" placeholder="Last Name" required>
-
+        {% csrf_token %}
         <br>Email<br>
         <input id="email" type="text" name="email" style="width: 75%" required>
-
+        {% csrf_token %}
         <br>Create a password<br>
         <input id="password1" type="password" minlength="8" name="password1" style="width: 75%" required placeholder="Minimum 8 characters">
-
+        {% csrf_token %}
         <br>Confirm your password<br>
         <input  id="password2" type="password" name="password2" required style="width: 75%" placeholder="Re-enter the same password">
-
+        {% csrf_token %}
         <br>Birthdate<br>
         <input  id="dob" type="date" style="width: 35%" name="dateofbirth">
-
+        {% csrf_token %}
         <br>Gender<br>
         <select id="gender"  name="gender" style="width: 35%" >
             <option value="male">Male</option>
@@ -48,10 +48,10 @@
             <option value="other">Other</option>
             <option value="unknown">Rather Not Say</option>
         </select>
-        
+        {% csrf_token %}
         <br>Join as<br>
         <select id="type" name="usertype" style="width: 35%">
-            <option value="artist">An Artist</option>
+            <option value="artist">Artist</option>
             <option value="customer">Customer</option>
         </select>
         <br><br><button type="submit">Register</button>

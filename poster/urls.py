@@ -7,8 +7,9 @@ urlpatterns=[
     url(r'login/$',login,{'template_name': 'poster/login.html'}),
     url(r'logout/$',logout,{'template_name': 'poster/logout.html'}),
     #url(r'register/$', views.register, name='register'),
-    url(r'^profile/$', views.Profile.as_view()),
+    url(r'^profile/$', views.profile),
     url(r'^test/$',views.mail),
     url(r'^test2/$',views.test2),
-    url(r'^register/$',views.saveRegister,name='saveRegister')
+    url(r'^register/$',views.saveRegister,name='saveRegister'),
+    url(r'^buildprofile/$',views.createprofile)
 ]
