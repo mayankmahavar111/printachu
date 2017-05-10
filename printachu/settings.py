@@ -27,19 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#EMAIL_HOST='smtp.gmail.com'
-#EMAIL_HOST_USER='mayankmahavar111@yahoo.com'
-#EMAIL_HOST_PASSWORD='sumit#lovedone'
-#EMAIL_PORT=587
-#EMAIL_USE_TLS=False
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='mayankmahavar111@gmail.com'
+EMAIL_HOST_PASSWORD='j.r.mahavar'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = False
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = 'TEST <test@blah.com>'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+#EMAIL_USE_TLS = False
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 25
+#DEFAULT_FROM_EMAIL = 'TEST <test@blah.com>'
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
 # Application definition
 
 INSTALLED_APPS = [

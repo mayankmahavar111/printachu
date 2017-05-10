@@ -14,18 +14,18 @@ from .models import UserProfile,ArtistProfile,CustomerProfile
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
 
-def mail(request):
-	#subject='testing'
-	#from_email=settings.EMAIL_HOST_USER
-	#to_email=from_email
+def mail(email):
+	subject='KalaCircle'
+	from_email=settings.EMAIL_HOST_USER
+	to_email=email
 
-	#send_mail(
-	#	subject,
-	#	'Is it working',
-	#	from_email,
-	#	[to_email],
-	#	fail_silently=False
-	#)
+	send_mail(
+		subject,
+		'You have succesfully registered in kalacircle. We will Keep updating you.',
+		from_email,
+		[to_email],
+		fail_silently=False
+	)
 
 	return redirect('/poster/test2')
 
@@ -40,20 +40,24 @@ def saveRegister(request):
 		dob=request.POST.get('dateofbirth')
 		gender=request.POST.get('gender')
 		type=request.POST.get('usertype')
-		user=User.objects.create(
-			username=first_name,
-			email=email,
-			password=password1,
-		)
+		try:
+			user=User.objects.create(
+				username=email,
+				email=email,
+				password=password1,
+			)
+		except:
+			return redirect('/poster/register')
+
 		user.set_password(password1)
 		user.save()
-		user=authenticate(username=first_name,password=password1)
+		user=authenticate(username=email,password=password1)
 
 		print user
 		if user is not None:
 			login(request, user)
 			x=UserProfile.objects.create(
-				user=first_name,
+				user=email,
 				first_name=first_name,
 				last_name=last_name,
 				email=email,
@@ -62,6 +66,7 @@ def saveRegister(request):
 				gender=gender
 			)
 			x.save()
+			mail(email)
 			if x.join_as=="artist":
 				artist=ArtistProfile.objects.create(
 					user=request.user,
