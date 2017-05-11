@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from poster.forms import RegistrationForm
+from poster.forms import ArtistProfileForm
 from django.views.generic import TemplateView
 from django.views import  generic
 from django.utils.decorators import method_decorator
@@ -13,6 +13,7 @@ from django.contrib.auth import authenticate,login
 from .models import UserProfile,ArtistProfile,CustomerProfile
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
+
 
 def mail(email):
 	subject='KalaCircle'
@@ -66,15 +67,17 @@ def saveRegister(request):
 				gender=gender
 			)
 			x.save()
-			mail(email)
+
 			if x.join_as=="artist":
 				artist=ArtistProfile.objects.create(
 					user=request.user,
-					name=x.first_name
+					name=first_name
 				)
 				artist.save()
+				mail(email)
 				return redirect('/poster/profile')
 			else:
+				mail(email)
 				return redirect('/poster/')
 		print first_name,last_name,email,password1,password2,dob,gender,type
 		return redirect('/poster/register')
@@ -121,9 +124,17 @@ class Profile(TemplateView):
 @login_required()
 def createprofile(request):
 	if request.method=="POST":
-		pass
+		x=ArtistProfile.objects.get(user=request.user)
+		form=ArtistProfileForm(request.POST,request.FILES)
+		print "Hello"
+		print "World"
+		x.profile_pic=form.files['profile_pic']
+		x.Description=form.cleaned_data['description']
+		x.save()
+		return  redirect('/poster/profile')
 	else:
-		return render(request,'poster/buildprofile.html')
+		form=ArtistProfileForm()
+		return render(request,'poster/buildprofile.html',{'form':form})
 
 class Index(TemplateView):
 	template_name = 'poster/home.html'

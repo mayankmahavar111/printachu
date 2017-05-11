@@ -23,3 +23,7 @@ class RegistrationForm(UserCreationForm):
 
         )
 
+
+class ArtistProfileForm(forms.Form):
+    profile_pic=forms.FileField(required=True,label='Profile Pic ')
+    description=forms.CharField(widget=forms.Textarea,required=True,label="Tell us something about you" )

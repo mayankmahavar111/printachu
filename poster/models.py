@@ -26,7 +26,7 @@ class CustomerProfile(models.Model):
 class ArtistProfile(models.Model):
     user=models.ForeignKey(User)
     name=models.CharField(max_length=50,default='')
-    profile_pic=models.ImageField(default='')
+    profile_pic=models.FileField(default='')
     Description=models.CharField(max_length=400,default='')
     designs_no=models.IntegerField(default=0)
     cash_rec=models.IntegerField(default=0)
