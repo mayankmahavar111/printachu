@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import format_html
 from django.contrib.auth.models import User
+from .models import UserProfile,ArtistProfile
 
 from django.contrib.auth.forms import UserCreationForm
 
@@ -24,6 +25,14 @@ class RegistrationForm(UserCreationForm):
         )
 
 
-class ArtistProfileForm(forms.Form):
-    profile_pic=forms.FileField(required=True,label='Profile Pic ')
-    description=forms.CharField(widget=forms.Textarea,required=True,label="Tell us something about you" )
+class ArtistProfileForm(forms.ModelForm):
+    class Meta:
+        model=ArtistProfile
+        fields=(
+
+            'profile_pic',
+
+            'Description',
+
+
+        )

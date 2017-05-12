@@ -127,10 +127,11 @@ def createprofile(request):
 		x=ArtistProfile.objects.get(user=request.user)
 		form=ArtistProfileForm(request.POST,request.FILES)
 		print "Hello"
-		print "World"
-		x.profile_pic=form.files['profile_pic']
-		x.Description=form.cleaned_data['description']
-		x.save()
+		if form.is_valid():
+			print "World"
+			x.profile_pic=form.files['profile_pic']
+			x.Description=form.cleaned_data['Description']
+			x.save()
 		return  redirect('/poster/profile')
 	else:
 		form=ArtistProfileForm()
