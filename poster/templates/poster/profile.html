@@ -19,7 +19,7 @@
     <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
     {% else %}
         <ul>
-            <div><img src="{{ artist.profile_pic }}"></div>
+            <div><img src="{{ artist.profile_pic.url }}" style="width: 304px;height: 228px"></div>
             <div>{{ x.first_name }}  {{ x.last_name }}</div>
             <div>{{ x.email }}</div>
             <div>{{ x.join_as }}</div>
