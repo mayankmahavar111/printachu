@@ -10,24 +10,10 @@ from django.views import  generic
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User,UserManager
 from django.contrib.auth import authenticate,login
-from .models import UserProfile,ArtistProfile,CustomerProfile,Category
+from .models import UserProfile,ArtistProfile,CustomerProfile
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
 
-
-
-def artist(x,request):
-    if x is True:
-        artist = ArtistProfile.objects.create(
-            user=request.user,
-            name=User.first_name
-        )
-        artist.save()
-        category=Category.objects.create(
-            user=request.user
-        )
-        category.save()
-    return
 
 def mail(email,y):
 	subject='KalaCircle'
@@ -36,14 +22,13 @@ def mail(email,y):
 
 	send_mail(
 		subject,
-		'You have succesfully registered in kalacircle. We will Keep updating you.',
-        'your password is :'+y,
+		'You have succesfully registered in kalacircle. We will Keep updating you.'+y,
 		from_email,
 		[to_email],
 		fail_silently=False
 	)
 
-	return
+	return redirect('/poster/test2')
 
 def saveRegister(request):
 	if request.method == "POST":
@@ -82,8 +67,18 @@ def saveRegister(request):
 				gender=gender
 			)
 			x.save()
-			mail(email,password1)
-			return redirect('/poster/')
+
+			if x.join_as=="artist":
+				artist=ArtistProfile.objects.create(
+					user=request.user,
+					name=first_name
+				)
+				artist.save()
+				mail(email,password1)
+				return redirect('/poster/profile')
+			else:
+				mail(email)
+				return redirect('/poster/')
 		print first_name,last_name,email,password1,password2,dob,gender,type
 		return redirect('/poster/register')
 	else:
