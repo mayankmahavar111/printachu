@@ -35,5 +35,8 @@ class ArtistProfile(models.Model):
     def __str__(self):
         return self.name
 
-
+class Category(models.Model):
+    user=models.ForeignKey(User)
+    pic=models.ImageField(default='')
+    name=models.CharField(default="anime",max_length=10)
 
