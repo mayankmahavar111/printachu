@@ -37,13 +37,13 @@ class ArtistProfile(models.Model):
         return self.name
 
 class Category(models.Model):
-    user=models.ForeignKey(User)
     name=models.CharField(max_length=20,default="")
 
     def __str__(self):
         return self.name
 
 class poster(models.Model):
+    user=models.ForeignKey(User)
     name=models.ForeignKey(Category,on_delete=models.CASCADE)
     description=models.CharField(default="",max_length=100)
     image=models.ImageField(default="")

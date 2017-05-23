@@ -115,7 +115,10 @@ def profile(request):
 	if request.method=="POST":
 		pass
 	else:
-		x=UserProfile.objects.get(user=request.user)
+		try:
+			x=UserProfile.objects.get(user=request.user)
+		except:
+			pass
 		if x.join_as=="artist":
 			artist=ArtistProfile.objects.get(user=request.user)
 			#print "Hello World"
