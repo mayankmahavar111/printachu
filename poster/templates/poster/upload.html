@@ -1,6 +1,6 @@
-{%extends 'poster/base.html'%}
-{% block body %}
+{% extends 'poster/base.html' %}
 
+{% block body %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% for field in form %}

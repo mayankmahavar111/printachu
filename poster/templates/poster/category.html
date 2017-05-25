@@ -1,0 +1,9 @@
+{% extends 'poster/base.html' %}
+
+{% block body %}
+    <ul>
+{% for x in Categorys %}
+    <li><a href="/poster/category/{{ x }}">{{ x }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

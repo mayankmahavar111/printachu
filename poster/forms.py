@@ -1,9 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import format_html
 from django.contrib.auth.models import User
-from .models import UserProfile,ArtistProfile
-
+from .models import UserProfile,ArtistProfile,poster
 from django.contrib.auth.forms import UserCreationForm
+
+
 
 class RegistrationForm(UserCreationForm):
     email=forms.EmailField(required=True,label='Your Email ID: - ',initial='email')
@@ -36,3 +37,17 @@ class ArtistProfileForm(forms.ModelForm):
 
 
         )
+
+class PosterForm(forms.ModelForm):
+    class Meta :
+        model=poster
+        fields=(
+            'title',
+            'description',
+            'category',
+            'image'
+
+        )
+
+class FileFieldForm(forms.Form):
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))

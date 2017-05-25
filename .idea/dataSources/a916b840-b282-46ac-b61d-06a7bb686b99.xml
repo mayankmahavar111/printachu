@@ -575,16 +575,34 @@ model</ColNames>
       <DataType>VARCHAR(20)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="130" parent="17" name="user_id">
+    <key id="130" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="131" parent="18" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="132" parent="18" name="Curr_status">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="18" name="user_id">
       <Position>2</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="131" parent="17">
+    <column id="134" parent="18" name="email">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="135" parent="18">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="132" parent="17" name="#FAKE_poster_category_1">
+    <foreign-key id="136" parent="18" name="#FAKE_poster_customerprofile_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -594,68 +612,50 @@ model</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="133" parent="18" name="id">
+    <column id="137" parent="19" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="134" parent="18" name="Curr_status">
+    <column id="138" parent="19" name="image">
       <Position>1</Position>
       <DataType>VARCHAR(100)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="135" parent="18" name="user_id">
+    <column id="139" parent="19" name="name_id">
       <Position>2</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="136" parent="18" name="email">
+    <column id="140" parent="19" name="description">
       <Position>3</Position>
       <DataType>VARCHAR(100)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="137" parent="18">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="138" parent="18" name="#FAKE_poster_customerprofile_1">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_id</ColNames>
-      <Deferrable>1</Deferrable>
-      <InitiallyDeferred>1</InitiallyDeferred>
-      <RefTableName>auth_user</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>no-action</OnDelete>
-      <OnUpdate>no-action</OnUpdate>
-    </foreign-key>
-    <column id="139" parent="19" name="id">
+    <column id="141" parent="19" name="user_id">
+      <Position>4</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="140" parent="19" name="image">
-      <Position>1</Position>
-      <DataType>VARCHAR(100)(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="141" parent="19" name="name_id">
-      <Position>2</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="142" parent="19" name="description">
-      <Position>3</Position>
-      <DataType>VARCHAR(100)(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="143" parent="19">
+    <key id="142" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="144" parent="19" name="#FAKE_poster_poster_1">
+    <foreign-key id="143" parent="19" name="#FAKE_poster_poster_2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>poster_category</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="144" parent="19" name="#FAKE_poster_poster_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>

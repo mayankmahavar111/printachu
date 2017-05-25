@@ -10,9 +10,11 @@ from django.views import  generic
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User,UserManager
 from django.contrib.auth import authenticate,login
-from .models import UserProfile,ArtistProfile,CustomerProfile,Category
+from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
+from .forms import FileFieldForm,PosterForm
+from django.views.generic.edit import FormView
 
 def artist(x,request,email):
 	if x == True:
@@ -154,3 +156,76 @@ def createprofile(request):
 class Index(TemplateView):
 	template_name = 'poster/home.html'
 
+def category(request):
+	return render(request,'poster/category.html',{'Categorys': Category.objects.all()})
+
+def anime(request):
+	anime=poster.objects.filter(category__name='anime',user=request.user)
+	return render(request,'poster/progress.html',{'anime':anime})
+
+def people(request):
+	return render(request, 'poster/progress.html')
+
+def movies(request):
+	return render(request, 'poster/progress.html')
+
+def quotes(request):
+	return render(request, 'poster/progress.html')
+
+def sports(request):
+	return render(request, 'poster/progress.html')
+
+def nature(request):
+	return render(request, 'poster/progress.html')
+
+
+class Upload(FormView):
+	form_class = FileFieldForm
+	template_name = 'poster/upload.html'  # Replace with your template.
+	success_url = 'poster/category'  # Replace with your URL or reverse().
+
+	def post(self, request, *args, **kwargs):
+		x=0
+		form_class = self.get_form_class()
+		form = self.get_form(form_class)
+		files = request.FILES.getlist('file_field')
+		if form.is_valid():
+			for f in files:
+				post=poster.objects.create(
+					user=request.user,
+					name='anime',
+					desription='mayank'+str(x),
+					image=f
+				)
+				post.save()
+				x=x+1
+			return self.form_valid(form)
+		else:
+			return self.form_invalid(form)
+	def get(self, request, *args, **kwargs):
+		form=FileFieldForm()
+		return render(request,'poster/upload.html',{'form':form})
+
+def PosterUpload(request):
+	if request.method=="POST":
+		form=PosterForm(request.POST,request.FILES)
+		user=UserProfile.objects.get(user=request.user)
+		if form.is_valid():
+			Cat=form.cleaned_data['category']
+			desc=form.cleaned_data['description']
+			Title=form.cleaned_data['title']
+			imag=form.cleaned_data['image']
+			post=poster.objects.create(
+				user=request.user,
+				category=Cat,
+				title=Title,
+				description=desc,
+				image=imag
+			)
+			post.save()
+			return redirect('/poster/category/'+str(form.cleaned_data['category']))
+		else:
+			return redirect('/poster/category/upload/')
+	else:
+		form=PosterForm()
+		return render(request,'poster/upload.html',{'form':form})

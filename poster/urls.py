@@ -11,5 +11,13 @@ urlpatterns=[
     url(r'^test/$',views.mail),
     url(r'^test2/$',views.test2),
     url(r'^register/$',views.saveRegister,name='saveRegister'),
-    url(r'^buildprofile/$',views.createprofile)
+    url(r'^buildprofile/$',views.createprofile),
+    url(r'^category/$',views.category),
+    url(r'^category/anime/$',views.anime),
+    url(r'^category/people/$',views.people),
+    url(r'^category/movies/$',views.movies),
+    url(r'^category/quotes/$',views.quotes),
+    url(r'^category/nature/$',views.nature),
+    url(r'^category/sports/$',views.sports),
+    url(r'^category/upload/$',views.PosterUpload),
 ]

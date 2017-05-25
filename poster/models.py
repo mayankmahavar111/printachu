@@ -44,11 +44,18 @@ class Category(models.Model):
 
 class poster(models.Model):
     user=models.ForeignKey(User)
-    name=models.ForeignKey(Category,on_delete=models.CASCADE)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
     description=models.CharField(default="",max_length=100)
     image=models.ImageField(default="")
+    title=models.CharField(default='',max_length=100)
+    quora_count=models.IntegerField(default=0)
+
 
     def __str__(self):
-        return self.description
+        return self.title
+
+class tags(models.Model):
+    pass
+
 
 
