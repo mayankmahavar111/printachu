@@ -15,6 +15,9 @@ from django.core.mail import send_mail,mail_managers
 from django.conf import settings
 from .forms import FileFieldForm,PosterForm
 from django.views.generic.edit import FormView
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
+
 
 def artist(x,request,email):
 	if x == True:
@@ -50,7 +53,8 @@ def mail(email,y):
 	)
 
 	return
-
+@csrf_exempt
+@csrf_protect
 def saveRegister(request):
 	if request.method == "POST":
 		print request.POST
