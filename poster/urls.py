@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url,include
 from . import views
 from django.contrib.auth.views import login,logout,password_reset,password_reset_done,password_reset_confirm,password_reset_complete
 
@@ -20,4 +20,7 @@ urlpatterns=[
     url(r'^category/nature/$',views.nature),
     url(r'^category/sports/$',views.sports),
     url(r'^category/upload/$',views.PosterUpload),
+    url(r'^search/$',views.search),
+    url(r'^payments/', include('payments.urls')),
+   # url(r'^oauth/',include('paytmoauth.urls')),
 ]

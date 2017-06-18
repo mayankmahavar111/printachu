@@ -41,6 +41,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST_USER = ''
 #EMAIL_HOST_PASSWORD = ''
 # Application definition
+PAYMENT_HOST = 'localhost:8000'
+PAYMENT_USES_SSL = False
+PAYMENT_MODEL = 'poster.Payment'
+PAYMENT_VARIANTS = {
+    'default': ('payments.dummy.DummyProvider', {})}
 
 INSTALLED_APPS = [
     'poster',
@@ -57,6 +62,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    'payments',
+    #'paytmoauth'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +81,7 @@ ROOT_URLCONF = 'printachu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,6 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'paytmoauth.context_processors.login_url',
             ],
         },
     },
@@ -146,6 +154,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT= '/static/'
 LOGIN_REDIRECT_URL='/poster/profile'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

@@ -1,5 +1,11 @@
 this is test.
 {% extends 'poster/base.html' %}
 {% block body %}
-    {{ user }}
+    <ul>
+    {% for c in x %}
+        <li><img src="{{ c.image.url }}" style="width: 304px;height: 228px"></li>
+        <li>{{ c.title }}</li>
+        <li>{{ c.category }}</li>
+    {% endfor %}
+    </ul>
 {% endblock %}
