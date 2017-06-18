@@ -9,27 +9,70 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{%static 'poster/profilecss.css' %}">
+<script type="text/javascript" src={% static "poster/js/profilejs.js" %} ></script>
 </html>
 
 <body>
-<div class="topbar">
-</div>
+<h1>Artist Profile</h1>
+<header>
+  <figure class="profile-banner">
+      <img src="{% static 'poster/images/back1.jpg' %}" alt="Wrapper Gif">
+  </figure>
+  <figure class="profile-picture" style="background-image: url({{ artist.profile_pic.url }})" >
+  </figure>
+  <div class="profile-stats">
+    <ul>
+      <li>13    <span>Designs</span></li>
+      <li>{{ artist.cash_rec }} <span>Sales</span></li>
+      <li>{{ artist.cash_nrec }}    <span>Balance</span></li>
+      <li>0   <span>Followers</span></li>
+    </ul>
+  </div>
+  <h1 class="name" style="color: #5bc0de">{{ x.first_name }} <small style="color: #5bc0de"> {{ x.last_name }}</small></h1>
+</header>
 <div>
     {% if artist.profile_pic == ''  %}
     <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
     {% else %}
+                <div class="cards">
+        <h2 style="color: #FFFFFF;">Description</h2>
         <ul>
-            <div><img src="{{ artist.profile_pic.url }}" style="width: 304px;height: 228px"></div>
-            <div>{{ x.first_name }}  {{ x.last_name }}</div>
             <div>{{ x.email }}</div>
             <div>{{ x.join_as }}</div>
             <div>{{ x.date_of_birth }}</div>
             <div> {{ artist.Description }}</div>
-            <div>{{ artist.cash_nrec }}</div>
-            <div>{{ artist.cash_rec }}</div>
             <div>{{ user.last_login }}</div>
         </ul>
+        </div>
     {% endif %}
 </div>
+
+<h1>
+  Click on the hamburger icon →
+</h1>
+<div  class="open">
+	<span class="cls"></span>
+	<span>
+		<ul class="sub-menu ">
+			<li>
+				<a href="#about" title="about">Sobre / About</a>
+			</li>
+			<li>
+				<a href="#skills" title="skills">Habilidades / Skills</a>
+			</li>
+			<li>
+				<a href="#jobs" title="jobs">Trabalhos / Jobs</a>
+			</li>
+			<li>
+				<a href="#contact" title="contact">Contato / Contact</a>
+			</li>
+		</ul>
+	</span>
+	<span class="cls"></span>
+</div>
+
+
+<a href="http://sergioand.com" class="button" title="Check out my website :D">Check out my website :D</a>
+
 </body>
 {% endblock %}
