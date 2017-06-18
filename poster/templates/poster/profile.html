@@ -1,78 +1,191 @@
 {%extends 'poster/base.html'%}
+
 {% block body %}
-<!DOCTYPE html>
-<html>
-{% load static %}
-	{%block title%}
-    <title>{{x.first_name}} {{x.last_name}} - Printachu</title>
-    {% endblock%}
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{%static 'poster/profilecss.css' %}">
-<script type="text/javascript" src={% static "poster/js/profilejs.js" %} ></script>
-</html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Printachu</title>
+    {% load static %}
+    <link href="{% static 'poster/profilecss.css' %}" rel="stylesheet" />
+    <link href="{% static 'poster/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'poster/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'poster/morris-0.4.3.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'poster/custom-styles.css' %}" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
 
 <body>
-<h1>Artist Profile</h1>
-<header>
-  <figure class="profile-banner">
-      <img src="{% static 'poster/images/back1.jpg' %}" alt="Wrapper Gif">
-  </figure>
-  <figure class="profile-picture" style="background-image: url({{ artist.profile_pic.url }})" >
-  </figure>
-  <div class="profile-stats">
-    <ul>
-      <li>13    <span>Designs</span></li>
-      <li>{{ artist.cash_rec }} <span>Sales</span></li>
-      <li>{{ artist.cash_nrec }}    <span>Balance</span></li>
-      <li>0   <span>Followers</span></li>
-    </ul>
+
+<aside class="profile-card">
+
+  <header>
+
+    <a href="">
+      <img src="{{ artist.profile_pic.url }}">
+    </a>
+
+    <!-- the username -->
+      <h1 style="color: black">{{ x.first_name }} <small style="color:black">{{ x.last_name }}</small></h1>
+
+
+  </header>
+
+  <div class="profile-bio">
+
+    <p>Hello there!</p>
+    <p>I am a Student. I mainly work with Django backend part.
+      <br />I'm also good with designing and other cool stuff.</p>
+
   </div>
-  <h1 class="name" style="color: #5bc0de">{{ x.first_name }} <small style="color: #5bc0de"> {{ x.last_name }}</small></h1>
-</header>
-<div>
-    {% if artist.profile_pic == ''  %}
-    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
-    {% else %}
-                <div class="cards">
-        <h2 style="color: #FFFFFF;">Description</h2>
-        <ul>
-            <div>{{ x.email }}</div>
-            <div>{{ x.join_as }}</div>
-            <div>{{ x.date_of_birth }}</div>
-            <div> {{ artist.Description }}</div>
-            <div>{{ user.last_login }}</div>
-        </ul>
+
+</aside>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Artist Profile</a>
+            </div>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="ui-elements.html"><i class="fa fa-user"></i> My Profile </a>
+                    </li>
+					<li>
+                        <a href="chart.html"><i class="fa fa-list-alt"></i> About Me</a>
+                    </li>
+                    <li>
+                        <a href="tab-panel.html"><i class="fa fa-money"></i> Sales</a>
+                    </li>
+
+                    <li>
+                        <a href="table.html"><i class="fa fa-paint-brush"></i> Designs</a>
+                    </li>
+                    <li>
+                        <a href="form.html"><i class="fa fa-university"></i> Account Section </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-green">
+                            <div class="panel-body">
+                                <i class="fa fa-paint-brush fa-5x"></i>
+                                <h3>13</h3>
+                            </div>
+                            <div class="panel-footer back-footer-green">
+                                Posters
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-blue">
+                            <div class="panel-body">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <h3>0 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-blue">
+                                Sales
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-red">
+                            <div class="panel-body">
+                                <i class="fa fa fa-money fa-5x"></i>
+                                <h3>0 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-red">
+                                Balance
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                            <div class="panel-body">
+                                <i class="fa fa-users fa-5x"></i>
+                                <h3>0 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-brown">
+                                Followers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<footer><p>All right reserved. by: TeamPrintachu </p></footer>
+            </div>
         </div>
-    {% endif %}
-</div>
+    </div>
 
-<h1>
-  Click on the hamburger icon →
-</h1>
-<div  class="open">
-	<span class="cls"></span>
-	<span>
-		<ul class="sub-menu ">
-			<li>
-				<a href="#about" title="about">Sobre / About</a>
-			</li>
-			<li>
-				<a href="#skills" title="skills">Habilidades / Skills</a>
-			</li>
-			<li>
-				<a href="#jobs" title="jobs">Trabalhos / Jobs</a>
-			</li>
-			<li>
-				<a href="#contact" title="contact">Contato / Contact</a>
-			</li>
-		</ul>
-	</span>
-	<span class="cls"></span>
-</div>
+    <script src="{% static 'poster/js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'poster/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'poster/js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'poster/js/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'poster/js/morris.js' %}"></script>
+    <script src="{% static 'poster/js/custom-scripts.js' %}"></script>
 
-
-<a href="http://sergioand.com" class="button" title="Check out my website :D">Check out my website :D</a>
-
-</body>
 {% endblock %}

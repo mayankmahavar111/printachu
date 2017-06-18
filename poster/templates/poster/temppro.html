@@ -1,0 +1,55 @@
+{%extends 'poster/base.html'%}
+{% block body %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+	{%block title%}
+    <title>{{x.first_name}} {{x.last_name}} - Printachu</title>
+    {% endblock%}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{%static 'poster/profilecss.css' %}">
+    <link rel="stylesheet" href="{% static 'poster/w3css.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src={% static "poster/js/profilejs.js" %} ></script>
+</html>
+
+<body>
+<h1>Artist Profile</h1>
+<header>
+  <figure class="profile-banner">
+      <img src="{% static 'poster/images/back1.jpg' %}" alt="Wrapper Gif">
+  </figure>
+  <figure class="profile-picture" style="background-image: url({{ artist.profile_pic.url }})" >
+  </figure>
+  <div class="profile-stats">
+    <ul>
+      <li>13    <span>Designs</span></li>
+      <li>{{ artist.cash_rec }} <span>Sales</span></li>
+      <li>{{ artist.cash_nrec }}    <span>Balance</span></li>
+      <li>0   <span>Followers</span></li>
+    </ul>
+  </div>
+  <h1 class="name" style="color: #5bc0de">{{ x.first_name }} <small style="color: #5bc0de"> {{ x.last_name }}</small></h1>
+</header>
+<div>
+    {% if artist.profile_pic == ''  %}
+    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
+    {% else %}
+                <div class="cards">
+        <h2 style="color: #FFFFFF;">Description</h2>
+        <ul>
+            <div>{{ x.email }}</div>
+            <div>{{ x.join_as }}</div>
+            <div>{{ x.date_of_birth }}</div>
+            <div> {{ artist.Description }}</div>
+            <div>{{ user.last_login }}</div>
+        </ul>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+{% endblock %}
