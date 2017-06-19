@@ -1,0 +1,8 @@
+{% extends 'poster/base.html' %}
+
+{% block body %}
+<form action="{{ form.action }}" method="{{ form.method }}">
+    {{ form.as_p }}
+    <p><input type="submit" value="Proceed" /></p>
+</form>
+{% endblock %}

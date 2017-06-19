@@ -17,6 +17,7 @@
 
 
 <body>
+<<<<<<< HEAD
 
 <aside class="profile-card">
 
@@ -188,4 +189,27 @@
     <script src="{% static 'poster/js/morris.js' %}"></script>
     <script src="{% static 'poster/js/custom-scripts.js' %}"></script>
 
+{% endblock %}
+=======
+<div class="topbar">
+</div>
+<div>
+    {% if artist.profile_pic == ''  %}
+    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
+    {% else %}
+        <ul>
+            <div><img src="{{ artist.background_pic.url }}" style="width: 304px;height: 228px"></div>
+            <div><img src="{{ artist.profile_pic.url }}" style="width: 304px;height: 228px"></div>
+            <div>{{ x.first_name }}  {{ x.last_name }}</div>
+            <div>{{ x.email }}</div>
+            <div>{{ x.join_as }}</div>
+            <div>{{ x.date_of_birth }}</div>
+            <div> {{ artist.Description }}</div>
+            <div>{{ artist.cash_nrec }}</div>
+            <div>{{ artist.cash_rec }}</div>
+            <div>{{ user.last_login }}</div>
+        </ul>
+    {% endif %}
+</div>
+</body>
 {% endblock %}

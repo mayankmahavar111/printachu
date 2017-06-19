@@ -4,20 +4,40 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import decorators
 from poster.forms import ArtistProfileForm
 from django.views.generic import TemplateView
 from django.views import  generic
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User,UserManager
 from django.contrib.auth import authenticate,login
-from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster
+from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster,tags
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
+<<<<<<< HEAD
 from .forms import FileFieldForm,PosterForm
 from django.views.generic.edit import FormView
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_protect
 
+=======
+from .forms import SearchForm,PosterForm,RegistrationForm
+from django.shortcuts import get_object_or_404, redirect
+from django.template.response import TemplateResponse
+from payments import get_payment_model, RedirectNeeded
+from decimal import Decimal
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse,HttpResponseRedirect
+from django.template.loader import get_template
+from django.template import Context, Template,RequestContext
+import datetime
+import hashlib
+from random import randint
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.views.decorators import csrf
+
+from payments import get_payment_model
+>>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 
 def artist(x,request,email):
 	if x == True:
@@ -25,11 +45,11 @@ def artist(x,request,email):
 			user=request.user,
 			name=User.first_name
 		)
+
 		artist.save()
-		category=Category.objects.create(
-			user=request.user
-		)
-		category.save()
+
+		print "Hello World"
+
 		return redirect('/poster/profile')
 	else:
 		customer=CustomerProfile.objects.create(
@@ -53,19 +73,36 @@ def mail(email,y):
 	)
 
 	return
+<<<<<<< HEAD
 @csrf_exempt
 @csrf_protect
+=======
+
+
+>>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 def saveRegister(request):
 	if request.method == "POST":
+		form=RegistrationForm(request.POST)
 		print request.POST
-		first_name=request.POST.get('firstname')
-		last_name=request.POST.get('lastname')
-		email=request.POST.get('email')
-		password1=request.POST.get('password1')
-		password2=request.POST.get('password2')
-		dob=request.POST.get('dateofbirth')
-		gender=request.POST.get('gender')
-		type=request.POST.get('usertype')
+		if form.is_valid():
+			first_name=form.cleaned_data['first_name']
+			last_name=form.cleaned_data['last_name']
+			email=form.cleaned_data['email']
+			password1=form.cleaned_data['password1']
+			password2=form.cleaned_data['password2']
+			dob=form.cleaned_data['dob']
+			gender=form.cleaned_data['gender']
+			type=form.cleaned_data['type']
+			if gender=='1':
+				gender="Male"
+			else:
+				gender ="Female"
+			if type=='1':
+				type="artist"
+			else:
+				type="customer"
+		else:
+			pass
 		try:
 			user=User.objects.create(
 				username=email,
@@ -73,48 +110,55 @@ def saveRegister(request):
 				password=password1,
 			)
 		except:
-			return redirect('/poster/register')
+			return redirect('/poster/register/')
 
 		user.set_password(password1)
 		user.save()
 		user=authenticate(username=email,password=password1)
 
-		print user
-		if user is not None:
-			login(request, user)
-			x=UserProfile.objects.create(
-				user=email,
-				first_name=first_name,
-				last_name=last_name,
-				email=email,
-				date_of_birth=dob,
-				join_as=type,
-				gender=gender
-			)
-			x.save()
+		#print user
+		try:
+			if user is not None:
+				login(request, user)
+				x=UserProfile.objects.create(
+					user=email,
+					first_name=first_name,
+					last_name=last_name,
+					email=email,
+					date_of_birth=dob,
+					join_as=type,
+					gender=gender
+				)
 
-			artist( x.join_as=="artist",request,email)
 
-			mail(email,password1)
-		print first_name,last_name,email,password1,password2,dob,gender,type
-		return redirect('/poster/register')
+				x.save()
+
+
+				artist( x.join_as=="artist",request,email)
+				mail(email,password1)
+				print first_name,last_name,email,password1,password2,dob,gender,type
+				return redirect('/poster/login')
+
+		except:
+			x.delete()
+			x=User.objects.get(username=email)
+			x.delete()
+			return redirect('/poster/')
 	else:
+		form=RegistrationForm()
 		print "hello world"
-		return render(request,'poster/register.html')
+		return render(request,'poster/register.html',{'form':form})
+
+
 
 def test2(request):
-	user=authenticate(username='testing',password='user@1234')
-	if user is not None:
-		login(request,user)
-	return render(request,'poster/test.html')
+	x=poster.objects.filter(user=request.user,title__contains="naruto")
+	return render(request,'poster/test.html',{'x':x})
 
 def test(request,your_name,last_name):
 
 		print your_name,last_name
 		return redirect('/poster/test2')
-def register(request):
-		return render(request,'poster/register.html')
-
 @login_required
 def profile(request):
 
@@ -126,6 +170,7 @@ def profile(request):
 		except:
 			pass
 		if x.join_as=="artist":
+			print request.user
 			artist=ArtistProfile.objects.get(user=request.user)
 			#print "Hello World"
 			#print x.first_name,x.last_namex
@@ -136,9 +181,6 @@ def profile(request):
 			return render(request,'poster/profile.html',args)
 		else:
 			return redirect('/poster')
-@method_decorator(login_required, name='dispatch')
-class Profile(TemplateView):
-	template_name = 'poster/profile.html'
 
 
 @login_required()
@@ -150,6 +192,7 @@ def createprofile(request):
 		if form.is_valid():
 			print "World"
 			x.profile_pic=form.files['profile_pic']
+			x.background_pic=form.files['background_pic']
 			x.Description=form.cleaned_data['Description']
 			x.save()
 		return  redirect('/poster/profile')
@@ -164,51 +207,31 @@ def category(request):
 	return render(request,'poster/category.html',{'Categorys': Category.objects.all()})
 
 def anime(request):
-	anime=poster.objects.filter(category__name='anime',user=request.user)
-	return render(request,'poster/progress.html',{'anime':anime})
+	Category=poster.objects.filter(category__name='anime',user=request.user)
+	return render(request,'poster/progress.html',{'anime':Category})
 
 def people(request):
-	return render(request, 'poster/progress.html')
+	Category = poster.objects.filter(category__name='people', user=request.user)
+	return render(request, 'poster/progress.html', {'anime': Category})
 
 def movies(request):
-	return render(request, 'poster/progress.html')
+	Category = poster.objects.filter(category__name='movies', user=request.user)
+	return render(request, 'poster/progress.html', {'anime': Category})
 
 def quotes(request):
-	return render(request, 'poster/progress.html')
+	Category = poster.objects.filter(category__name='quotes', user=request.user)
+	return render(request, 'poster/progress.html', {'anime': Category})
 
 def sports(request):
-	return render(request, 'poster/progress.html')
+	Category = poster.objects.filter(category__name='sports', user=request.user)
+	return render(request, 'poster/progress.html', {'anime': Category})
 
 def nature(request):
-	return render(request, 'poster/progress.html')
+	Category = poster.objects.filter(category__name='nature', user=request.user)
+	return render(request, 'poster/progress.html', {'anime': Category})
 
 
-class Upload(FormView):
-	form_class = FileFieldForm
-	template_name = 'poster/upload.html'  # Replace with your template.
-	success_url = 'poster/category'  # Replace with your URL or reverse().
 
-	def post(self, request, *args, **kwargs):
-		x=0
-		form_class = self.get_form_class()
-		form = self.get_form(form_class)
-		files = request.FILES.getlist('file_field')
-		if form.is_valid():
-			for f in files:
-				post=poster.objects.create(
-					user=request.user,
-					name='anime',
-					desription='mayank'+str(x),
-					image=f
-				)
-				post.save()
-				x=x+1
-			return self.form_valid(form)
-		else:
-			return self.form_invalid(form)
-	def get(self, request, *args, **kwargs):
-		form=FileFieldForm()
-		return render(request,'poster/upload.html',{'form':form})
 
 def PosterUpload(request):
 	if request.method=="POST":
@@ -226,10 +249,174 @@ def PosterUpload(request):
 				description=desc,
 				image=imag
 			)
+			if tags.objects.filter(title=form.cleaned_data['tags']) is False:
+				tag=tags.objects.create(
+					title=form.cleaned_data['tags']
+				)
+			else:
+				tag=tags.objects.get(title=form.cleaned_data['tags'])
+
+			x= (tag.poster_name+" "+Title)
+			print x
+			tag.poster_name=tag.poster_name+" "+str(Title)
 			post.save()
+			tag.save()
 			return redirect('/poster/category/'+str(form.cleaned_data['category']))
 		else:
 			return redirect('/poster/category/upload/')
 	else:
 		form=PosterForm()
 		return render(request,'poster/upload.html',{'form':form})
+
+
+def search(request):
+	if request.method=="POST":
+		form=SearchForm(request.POST)
+		tag=form.cleaned_data['search'].split(" ")
+		for t in tag:
+			if tags.objects.filter(title=t) :
+				x=tags.objects.get(title=t)
+				a=a+x.poster_name.split(" ")
+			else:
+				return render(request,'poster/not_found.html')
+		print a
+		poster=""
+		for p in a:
+			if p in poster:
+				pass
+			else:
+				poster=poster+" "+p
+
+	else:
+		form=SearchForm()
+		return render(request,'poster/Search.html',{'form':form})
+
+
+def payment_details(request, payment_id):
+	payment = get_object_or_404(get_payment_model(), id=payment_id)
+	try:
+		form = payment.get_form(data=request.POST or None)
+	except RedirectNeeded as redirect_to:
+		return redirect(str(redirect_to))
+	return TemplateResponse(request, 'poster/payment.html',{'form': form, 'payment': payment})
+
+Payment = get_payment_model()
+payment = Payment.objects.create(
+    variant='default',  # this is the variant from PAYMENT_VARIANTS
+    description='Book purchase',
+    total=Decimal(120),
+    tax=Decimal(20),
+    currency='USD',
+    delivery=Decimal(10),
+    billing_first_name='Sherlock',
+    billing_last_name='Holmes',
+    billing_address_1='221B Baker Street',
+    billing_address_2='',
+    billing_city='London',
+    billing_postcode='NW1 6XE',
+    billing_country_code='UK',
+    billing_country_area='Greater London',
+    customer_ip_address='127.0.0.1')
+
+
+
+def Home(request):
+	MERCHANT_KEY = "JBZaLc"
+	key = "JBZaLc"
+	SALT = "GQs7yium"
+	PAYU_BASE_URL = "https://test.payu.in/_payment"
+	action = ''
+	posted = {}
+	for i in request.POST:
+		posted[i] = request.POST[i]
+	hash_object = hashlib.sha256(b'randint(0,20)')
+	txnid = hash_object.hexdigest()[0:20]
+	hashh = ''
+	posted['txnid'] = txnid
+	hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
+	posted['key'] = key
+	hash_string = ''
+	hashVarsSeq = hashSequence.split('|')
+	for i in hashVarsSeq:
+		try:
+			hash_string += str(posted[i])
+		except Exception:
+			hash_string += ''
+		hash_string += '|'
+	hash_string += SALT
+	hashh = hashlib.sha512(hash_string).hexdigest().lower()
+	action = PAYU_BASE_URL
+	if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get(
+			"firstname") != None and posted.get("email") != None):
+		return render_to_response('poster/current_datetime.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+																					"MERCHANT_KEY": MERCHANT_KEY,
+																					"txnid": txnid,
+																					"hash_string": hash_string,
+																					"action": "https://test.payu.in/_payment"}))
+	else:
+		return render_to_response('poster/current_datetime.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+																					"MERCHANT_KEY": MERCHANT_KEY,
+																					"txnid": txnid,
+																					"hash_string": hash_string,
+																					"action": "."}))
+
+
+@csrf_protect
+@csrf_exempt
+def success(request):
+	c = {}
+	c.update(csrf(request))
+	status = request.POST["status"]
+	firstname = request.POST["firstname"]
+	amount = request.POST["amount"]
+	txnid = request.POST["txnid"]
+	posted_hash = request.POST["hash"]
+	key = request.POST["key"]
+	productinfo = request.POST["productinfo"]
+	email = request.POST["email"]
+	salt = "GQs7yium"
+	try:
+		additionalCharges = request.POST["additionalCharges"]
+		retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+	except Exception:
+		retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+	hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+	if (hashh != posted_hash):
+		print "Invalid Transaction. Please try again"
+	else:
+		print "Thank You. Your order status is ", status
+		print "Your Transaction ID for this transaction is ", txnid
+		print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+	return render_to_response('poster/sucess.html',
+							  RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
+
+
+@csrf_protect
+@csrf_exempt
+def failure(request):
+	c = {}
+	c.update(csrf(request))
+	status = request.POST["status"]
+	firstname = request.POST["firstname"]
+	amount = request.POST["amount"]
+	txnid = request.POST["txnid"]
+	posted_hash = request.POST["hash"]
+	key = request.POST["key"]
+	productinfo = request.POST["productinfo"]
+	email = request.POST["email"]
+	salt = "GQs7yium"
+	try:
+		additionalCharges = request.POST["additionalCharges"]
+		retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+	except Exception:
+		retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+	hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+	if (hashh != posted_hash):
+		print "Invalid Transaction. Please try again"
+	else:
+		print "Thank You. Your order status is ", status
+		print "Your Transaction ID for this transaction is ", txnid
+		print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+	return render_to_response("poster/Failure.html", RequestContext(request, c))
+
+

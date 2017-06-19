@@ -2,7 +2,10 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.db import models
+from decimal import Decimal
 
+from payments import PurchasedItem
+from payments.models import BasePayment
 
 class UserProfile(models.Model):
     user=models.CharField(max_length=30)
@@ -21,13 +24,13 @@ class CustomerProfile(models.Model):
     Curr_status=models.CharField(default="",max_length=100)
     email=models.CharField(max_length=100,default='')
 
-    def __str__(self):
-        return self.user
+
 
 class ArtistProfile(models.Model):
     user=models.ForeignKey(User)
     name=models.CharField(max_length=50,default='')
     profile_pic=models.ImageField(default='')
+    background_pic=models.ImageField(default='')
     Description=models.CharField(max_length=400,default='')
     designs_no=models.IntegerField(default=0)
     cash_rec=models.IntegerField(default=0)
@@ -55,7 +58,26 @@ class poster(models.Model):
         return self.title
 
 class tags(models.Model):
-    pass
+    title=models.CharField(default="anything",max_length=100)
+    poster_name=models.CharField(default=" ",max_length=5000)
+
+    def __str__(self):
+        return self.title
+
+
+
+class Payment(BasePayment):
+
+    def get_failure_url(self):
+        return 'http://example.com/failure/'
+
+    def get_success_url(self):
+        return 'http://example.com/success/'
+
+    def get_purchased_items(self):
+        # you'll probably want to retrieve these from an associated order
+        yield PurchasedItem(name='The Hound of the Baskervilles', sku='BSKV',
+                            quantity=9, price=Decimal(10), currency='USD')
 
 
 

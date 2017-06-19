@@ -1,0 +1,118 @@
+<html>
+  <head onload="submitPayuForm()">
+  <script type="text/javascript">
+    var hash = "{{ hashh }}";
+    function submitPayuForm() {
+      if(hash =='') {
+        return;
+      }
+      var payuForm = document.forms.payuForm;
+      payuForm.submit();
+    }
+    var csrftoken = Cookies.get('csrftoken');
+  </script>
+  </head>
+  <body>
+    <h2>PayU Form</h2>
+    <br/>
+    {% if error %}
+
+      <span style="color:red">Please fill all mandatory fields.</span>
+      <br/>
+      <br/>
+      {% endif %}
+        {% csrf_token %}
+      <form action={{ action }} method="post" name="payuForm">
+          {{ csrf_input }}
+      <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />{% csrf_token %}
+      <input type="hidden" name="hash_string" value="{{ hash_string }}" />{% csrf_token %}
+      <input type="hidden" name="hash" value="{{ hashh }}"/>{% csrf_token %}
+       <input type="hidden" name="posted" value="{{ posted }}"/>{% csrf_token %}
+      <input type="hidden" name="txnid" value="{{ txnid }}" />{% csrf_token %}
+      <table>{% csrf_token %}
+        <tr>{% csrf_token %}
+          <td><b>Mandatory Parameters</b></td>{% csrf_token %}
+        </tr>{% csrf_token %}
+        <tr>{% csrf_token %}
+         <td>Amount: </td>{% csrf_token %}
+          <td><input name="amount" value="{{ posted.amount|default:'' }}" /></td>{% csrf_token %}
+          <td>First Name: </td>{% csrf_token %}
+          <td><input name="firstname" id="firstname" value="{{ posted.firstname|default:'' }}" />{% csrf_token %}</td>
+        </tr>
+        <tr>
+          <td>Email: </td>{% csrf_token %}
+          <td><input name="email" id="email" value="{{ posted.email|default:'' }}" />{% csrf_token %}</td>
+          <td>Phone: </td>{% csrf_token %}
+          <td><input name="phone" value="{{ posted.phone|default:'' }}" />{% csrf_token %}</td>
+        </tr>
+        <tr>
+          <td>Product Info: </td>{% csrf_token %}
+          <td colspan="3"><textarea name="productinfo">{{ posted.productinfo|default:'' }}</textarea></td>
+        </tr>
+        <tr>
+          <td>Success URI: </td>{% csrf_token %}
+          <td colspan="3"><input name="surl" value="{{ posted.surl }}" size="64" /></td>
+        </tr>
+        <tr>
+          <td>Failure URI: </td>{% csrf_token %}
+          <td colspan="3"><input name="furl" value="{{ posted.furl }}" size="64" /></td>
+        </tr>
+
+        <tr>{% csrf_token %}
+          <td colspan="3"><input type="hidden" name="service_provider" value="payu_paisa" size="64" /></td>
+        </tr>
+             <tr>
+          <td><b>Optional Parameters</b></td>
+        </tr>
+        <tr>
+          <td>Last Name: </td>{% csrf_token %}
+          <td><input name="lastname" id="lastname" value="{{ posted.lastname }}" /></td>
+          <td>Cancel URI: </td>{% csrf_token %}
+          <td><input name="curl" value="" /></td>
+        </tr>
+        <tr>
+          <td>Address1: </td>{% csrf_token %}
+          <td><input name="address1" value="{{ posted.address1 }}" /></td>
+          <td>Address2: </td>{% csrf_token %}
+          <td><input name="address2" value="{{ posted.address2 }}" /></td>
+        </tr>
+        <tr>
+          <td>City: </td>{% csrf_token %}
+          <td><input name="city" value="{{ posted.city }}" /></td>
+          <td>State: </td>{% csrf_token %}
+          <td><input name="state" value="{{ posted.state }}" /></td>
+        </tr>
+        <tr>
+          <td>Country: </td>{% csrf_token %}
+          <td><input name="country" value="{{ posted.country }}" /></td>
+          <td>Zipcode: </td>{% csrf_token %}
+          <td><input name="zipcode" value="{{ posted.zipcode }}" /></td>
+        </tr>
+        <tr>
+          <td>UDF1: </td>{% csrf_token %}
+          <td><input name="udf1" value="{{ posted.udf1 }}" /></td>
+          <td>UDF2: </td>{% csrf_token %}
+          <td><input name="udf2" value="{{ posted.udf2 }}" /></td>
+        </tr>
+        <tr>
+          <td>UDF3: </td>{% csrf_token %}
+          <td><input name="udf3" value="{{ posted.udf3 }}" /></td>
+          <td>UDF4: </td>{% csrf_token %}
+          <td><input name="udf4" value="{{ posted.udf4 }}" /></td>
+        </tr>
+        <tr>
+          <td>UDF5: </td>{% csrf_token %}
+          <td><input name="udf5" value="{{ posted.udf5 }}" /></td>
+          <td>PG: </td>{% csrf_token %}
+          <td><input name="pg" value="{{ posted.PG }}" /></td>
+        </tr>
+                {% csrf_token %}
+     <td colspan="4"><input type="submit" value="Submit" /></td>
+
+
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+
