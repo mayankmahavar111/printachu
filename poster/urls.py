@@ -22,5 +22,6 @@ urlpatterns=[
     url(r'^category/upload/$',views.PosterUpload),
     url(r'^search/$',views.search),
     url(r'^payments/', include('payments.urls')),
+    url(r'^display/$',views.display)
    # url(r'^oauth/',include('paytmoauth.urls')),
 ]

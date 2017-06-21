@@ -217,7 +217,12 @@ def nature(request):
 	Category = poster.objects.filter(category__name='nature', user=request.user)
 	return render(request, 'poster/progress.html', {'anime': Category})
 
-
+def display(request):
+	if request.method=="POST":
+		pass
+	else:
+		pos=poster.objects.get(category__name='anime',title='naruto')
+		return render(request,'poster/display.html',{'poster':pos})
 
 
 def PosterUpload(request):
