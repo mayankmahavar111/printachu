@@ -14,16 +14,6 @@ from django.contrib.auth import authenticate,login
 from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster,tags
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
-<<<<<<< HEAD
-<<<<<<< HEAD
-from .forms import FileFieldForm,PosterForm
-from django.views.generic.edit import FormView
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.csrf import csrf_protect
-
-=======
-=======
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 from .forms import SearchForm,PosterForm,RegistrationForm
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
@@ -40,10 +30,6 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.views.decorators import csrf
 
 from payments import get_payment_model
-<<<<<<< HEAD
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
-=======
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 
 def artist(x,request,email):
 	if x == True:
@@ -79,17 +65,8 @@ def mail(email,y):
 	)
 
 	return
-<<<<<<< HEAD
-@csrf_exempt
-@csrf_protect
-=======
 
 
-<<<<<<< HEAD
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
-=======
-
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 def saveRegister(request):
 	if request.method == "POST":
 		form=RegistrationForm(request.POST)
@@ -140,17 +117,10 @@ def saveRegister(request):
 					gender=gender
 				)
 
-<<<<<<< HEAD
 
 				x.save()
 
 
-=======
-
-				x.save()
-
-
->>>>>>> 3fcca2aedca8a45c28251700010b41cab36f75e3
 				artist( x.join_as=="artist",request,email)
 				mail(email,password1)
 				print first_name,last_name,email,password1,password2,dob,gender,type
@@ -247,7 +217,12 @@ def nature(request):
 	Category = poster.objects.filter(category__name='nature', user=request.user)
 	return render(request, 'poster/progress.html', {'anime': Category})
 
-
+def display(request):
+	if request.method=="POST":
+		pass
+	else:
+		pos=poster.objects.get(category__name='anime',title='naruto')
+		return render(request,'poster/display.html',{'poster':pos})
 
 
 def PosterUpload(request):
