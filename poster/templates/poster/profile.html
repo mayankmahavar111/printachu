@@ -17,8 +17,9 @@
 
 
 <body>
-<<<<<<< HEAD
-
+{% if artist.profile_pic == ''  %}
+    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
+{% else %}
 <aside class="profile-card">
 
   <header>
@@ -61,23 +62,23 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-user"></i> My Profile </a>
+                        <a href="#"><i class="fa fa-user"></i> My Profile </a>
                     </li>
 					<li>
-                        <a href="chart.html"><i class="fa fa-list-alt"></i> About Me</a>
+                        <a href="#"><i class="fa fa-list-alt"></i> About Me</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-money"></i> Sales</a>
+                        <a href="#"><i class="fa fa-money"></i> Sales</a>
                     </li>
 
                     <li>
-                        <a href="table.html"><i class="fa fa-paint-brush"></i> Designs</a>
-                    </li>
+                        <a href="#"><i class="fa fa-paint-brush"></i> Designs</a>
+                    </li><!--
                     <li>
-                        <a href="form.html"><i class="fa fa-university"></i> Account Section </a>
+                        <a href="#"><i class="fa fa-university"></i> Account Section </a>
                     </li>
 
 
@@ -110,7 +111,7 @@
                     </li>
                     <li>
                         <a href=""><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
+                    </li>-->
                 </ul>
 
             </div>
@@ -189,27 +190,9 @@
     <script src="{% static 'poster/js/morris.js' %}"></script>
     <script src="{% static 'poster/js/custom-scripts.js' %}"></script>
 
-{% endblock %}
-=======
+
 <div class="topbar">
 </div>
-<div>
-    {% if artist.profile_pic == ''  %}
-    <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
-    {% else %}
-        <ul>
-            <div><img src="{{ artist.background_pic.url }}" style="width: 304px;height: 228px"></div>
-            <div><img src="{{ artist.profile_pic.url }}" style="width: 304px;height: 228px"></div>
-            <div>{{ x.first_name }}  {{ x.last_name }}</div>
-            <div>{{ x.email }}</div>
-            <div>{{ x.join_as }}</div>
-            <div>{{ x.date_of_birth }}</div>
-            <div> {{ artist.Description }}</div>
-            <div>{{ artist.cash_nrec }}</div>
-            <div>{{ artist.cash_rec }}</div>
-            <div>{{ user.last_login }}</div>
-        </ul>
     {% endif %}
-</div>
 </body>
 {% endblock %}

@@ -12,8 +12,13 @@
 </div>
 <div>
         <ul>
-            <div><img src="{{ poster.image.url }}" style="width: 304px;height: 228px"></div>
-        </ul>
+    {% for c in poster %}
+        <li><img src="{{ c.image1.url }}" style="width: 304px;height: 228px"></li>
+        <li>{{ c.title }}</li>
+        <li>{{ c.category }}</li>
+        <button type="submit" class="btn btn-success">Add to Cart.</button>
+    {% endfor %}
+    </ul>
 </div>
 </body>
 {% endblock %}

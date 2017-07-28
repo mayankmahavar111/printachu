@@ -15,6 +15,7 @@ class UserProfile(models.Model):
     gender=models.CharField(max_length=20)
     email=models.EmailField()
     join_as=models.CharField(max_length=10)
+    cart=models.CharField(max_length=1000,default='')
 
     def __str__(self):
         return self.user
@@ -23,6 +24,7 @@ class CustomerProfile(models.Model):
     user=models.ForeignKey(User)
     Curr_status=models.CharField(default="",max_length=100)
     email=models.CharField(max_length=100,default='')
+    cart=models.CharField(max_length=1000,default='')
 
 
 
@@ -35,6 +37,7 @@ class ArtistProfile(models.Model):
     designs_no=models.IntegerField(default=0)
     cash_rec=models.IntegerField(default=0)
     cash_nrec=models.IntegerField(default=0)
+    about =models.CharField(max_length=1000,default=' ')
 
     def __str__(self):
         return self.name
@@ -49,7 +52,9 @@ class poster(models.Model):
     user=models.ForeignKey(User)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     description=models.CharField(default="",max_length=100)
-    image=models.ImageField(default="")
+    image1=models.ImageField(default="")
+    image2=models.ImageField(default="")
+    image3=models.ImageField(default="")
     title=models.CharField(default='',max_length=100)
     quora_count=models.IntegerField(default=0)
 
