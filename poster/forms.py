@@ -66,7 +66,3 @@ class PosterForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search=forms.CharField(label="Search ")
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
