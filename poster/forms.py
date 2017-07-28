@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import models
-from django.contrib.auth.forms import format_html
 from django.contrib.auth.models import User
 from .models import UserProfile,ArtistProfile,poster
 from django.utils import timezone
@@ -67,4 +66,7 @@ class PosterForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search=forms.CharField(label="Search ")
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
