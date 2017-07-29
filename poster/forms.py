@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import models
-from django.contrib.auth.forms import format_html
 from django.contrib.auth.models import User
 from .models import UserProfile,ArtistProfile,poster
 from django.utils import timezone
