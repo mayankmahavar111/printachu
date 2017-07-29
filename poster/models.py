@@ -15,7 +15,7 @@ class UserProfile(models.Model):
     gender=models.CharField(max_length=20)
     email=models.EmailField()
     join_as=models.CharField(max_length=10)
-    cart=models.CharField(max_length=1000,default='')
+    cart=models.CharField(max_length=1000,default=' ')
 
     def __str__(self):
         return self.user

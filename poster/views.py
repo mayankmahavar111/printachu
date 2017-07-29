@@ -221,10 +221,15 @@ def nature(request):
 
 def display(request,id):
 	if request.method=="POST":
-		user=UserProfile.objects.get(user=User)
-		user.cart = user.cart + " " + id
+		user=UserProfile.objects.get(user=request.user)
+		#print id
+		if user.cart is None:
+			user.cart = id
+		else:
+			user.cart = user.cart + " " + id
 		print user.cart
-		return redirect(request,'/poster/category/anime')
+		user.save()
+		return redirect('/poster')
 	else:
 		pos=poster.objects.filter(id=id)
 		return render(request,'poster/display.html',{'poster':pos})
@@ -422,7 +427,12 @@ def cart(request):
 	if request.method=="POST":
 		pass
 	else:
-		return render(request,'poster/cart.html')
+		user=UserProfile.objects.get(user=request.user)
+		x=user.cart.split(" ")
+		print x[1:]
+		i=0
+		design=poster.objects.filter(pk__in=x[1:])
+		return render(request,'poster/cart.html',{'anime':design})
 
 def order(request):
 	if request.method=="POST":
@@ -430,4 +440,6 @@ def order(request):
 	else:
 		return render(request,'poster/order.html')
 
-
+def allDesigns(request):
+	Category = poster.objects.all()
+	return render(request, 'poster/progress.html', {'anime': Category})

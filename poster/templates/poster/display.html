@@ -11,6 +11,9 @@
 <div class="topbar">
 </div>
 <div>
+
+        <form method="post">
+        {% csrf_token %}
         <ul>
     {% for c in poster %}
         <li><img src="{{ c.image1.url }}" style="width: 304px;height: 228px"></li>
@@ -19,6 +22,7 @@
         <button type="submit" class="btn btn-success">Add to Cart.</button>
     {% endfor %}
     </ul>
+        </form>
 </div>
 </body>
 {% endblock %}

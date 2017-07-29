@@ -559,7 +559,7 @@ model</ColNames>
       <DataType>VARCHAR(100)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="129" parent="16" name="cart">
+    <column id="129" parent="16" name="about">
       <Position>9</Position>
       <DataType>VARCHAR(1000)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
@@ -891,54 +891,59 @@ model</ColNames>
       <DataType>VARCHAR(30)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="194" parent="22">
+    <column id="194" parent="22" name="cart">
+      <Position>8</Position>
+      <DataType>VARCHAR(1000)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="195" parent="22">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="195" parent="23" name="id">
+    <column id="196" parent="23" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="196" parent="23" name="provider">
+    <column id="197" parent="23" name="provider">
       <Position>1</Position>
       <DataType>VARCHAR(30)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="197" parent="23" name="uid">
+    <column id="198" parent="23" name="uid">
       <Position>2</Position>
       <DataType>VARCHAR(191)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="198" parent="23" name="last_login">
+    <column id="199" parent="23" name="last_login">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="199" parent="23" name="date_joined">
+    <column id="200" parent="23" name="date_joined">
       <Position>4</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="200" parent="23" name="user_id">
+    <column id="201" parent="23" name="user_id">
       <Position>5</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="201" parent="23" name="extra_data">
+    <column id="202" parent="23" name="extra_data">
       <Position>6</Position>
       <DataType>TEXT(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="202" parent="23" name="socialaccount_socialaccount_provider_fc810c6e_uniq">
+    <index id="203" parent="23" name="socialaccount_socialaccount_provider_fc810c6e_uniq">
       <ColNames>provider
 uid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="203" parent="23">
+    <key id="204" parent="23">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="204" parent="23" name="#FAKE_socialaccount_socialaccount_1">
+    <foreign-key id="205" parent="23" name="#FAKE_socialaccount_socialaccount_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -948,63 +953,63 @@ uid</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="205" parent="24" name="id">
+    <column id="206" parent="24" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="206" parent="24" name="provider">
+    <column id="207" parent="24" name="provider">
       <Position>1</Position>
       <DataType>VARCHAR(30)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="207" parent="24" name="name">
+    <column id="208" parent="24" name="name">
       <Position>2</Position>
       <DataType>VARCHAR(40)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="208" parent="24" name="client_id">
+    <column id="209" parent="24" name="client_id">
       <Position>3</Position>
       <DataType>VARCHAR(191)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="209" parent="24" name="key">
+    <column id="210" parent="24" name="key">
       <Position>4</Position>
       <DataType>VARCHAR(191)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="210" parent="24" name="secret">
+    <column id="211" parent="24" name="secret">
       <Position>5</Position>
       <DataType>VARCHAR(191)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="211" parent="24">
+    <key id="212" parent="24">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="212" parent="25" name="id">
+    <column id="213" parent="25" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="213" parent="25" name="socialapp_id">
+    <column id="214" parent="25" name="socialapp_id">
       <Position>1</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="214" parent="25" name="site_id">
+    <column id="215" parent="25" name="site_id">
       <Position>2</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="215" parent="25" name="socialaccount_socialapp_sites_socialapp_id_71a9a768_uniq">
+    <index id="216" parent="25" name="socialaccount_socialapp_sites_socialapp_id_71a9a768_uniq">
       <ColNames>socialapp_id
 site_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="216" parent="25">
+    <key id="217" parent="25">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="217" parent="25" name="#FAKE_socialaccount_socialapp_sites_2">
+    <foreign-key id="218" parent="25" name="#FAKE_socialaccount_socialapp_sites_2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>socialapp_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -1014,7 +1019,7 @@ site_id</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="218" parent="25" name="#FAKE_socialaccount_socialapp_sites_1">
+    <foreign-key id="219" parent="25" name="#FAKE_socialaccount_socialapp_sites_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>site_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -1024,44 +1029,44 @@ site_id</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="219" parent="26" name="id">
+    <column id="220" parent="26" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="220" parent="26" name="token">
+    <column id="221" parent="26" name="token">
       <Position>1</Position>
       <DataType>TEXT(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="221" parent="26" name="token_secret">
+    <column id="222" parent="26" name="token_secret">
       <Position>2</Position>
       <DataType>TEXT(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="222" parent="26" name="expires_at">
+    <column id="223" parent="26" name="expires_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="223" parent="26" name="account_id">
+    <column id="224" parent="26" name="account_id">
       <Position>4</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="224" parent="26" name="app_id">
+    <column id="225" parent="26" name="app_id">
       <Position>5</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="225" parent="26" name="socialaccount_socialtoken_app_id_fca4e0ac_uniq">
+    <index id="226" parent="26" name="socialaccount_socialtoken_app_id_fca4e0ac_uniq">
       <ColNames>app_id
 account_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="226" parent="26">
+    <key id="227" parent="26">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="227" parent="26" name="#FAKE_socialaccount_socialtoken_2">
+    <foreign-key id="228" parent="26" name="#FAKE_socialaccount_socialtoken_2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>account_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -1071,7 +1076,7 @@ account_id</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="228" parent="26" name="#FAKE_socialaccount_socialtoken_1">
+    <foreign-key id="229" parent="26" name="#FAKE_socialaccount_socialtoken_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>app_id</ColNames>
       <Deferrable>1</Deferrable>
@@ -1081,10 +1086,10 @@ account_id</ColNames>
       <OnDelete>no-action</OnDelete>
       <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="229" parent="27" name="name">
+    <column id="230" parent="27" name="name">
       <DataType>(0,-1)|12</DataType>
     </column>
-    <column id="230" parent="27" name="seq">
+    <column id="231" parent="27" name="seq">
       <Position>1</Position>
       <DataType>(0,-1)|12</DataType>
     </column>

@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'^test/$',views.test),
     url(r'^test2/$',views.test2),
     url(r'^register/$',views.saveRegister,name='saveRegister'),
+    url(r'designs/$',views.allDesigns),
     url(r'^buildprofile/$',views.createprofile),
     url(r'^category/$',views.category),
     url(r'^category/anime/$',views.anime),
@@ -23,6 +24,7 @@ urlpatterns=[
     url(r'^search/$',views.search),
     url(r'^payments/', include('payments.urls')),
     url(r'^display/(?P<id>[0-9]{1,10})/$',views.display),
-    url(r'^order/$',views.order)
+    url(r'^order/$',views.order),
+    url(r'^cart/$',views.cart),
    # url(r'^oauth/',include('paytmoauth.urls')),
 ]
