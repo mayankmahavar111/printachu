@@ -106,6 +106,7 @@ def saveRegister(request):
 		#print user
 		try:
 			if user is not None:
+				print "hello"
 				login(request, user)
 				x=UserProfile.objects.create(
 					user=email,
@@ -116,13 +117,12 @@ def saveRegister(request):
 					join_as=type,
 					gender=gender
 				)
-
-
 				x.save()
 
 
 				artist( x.join_as=="artist",request,email)
 				mail(email,password1)
+				print " World"
 				print first_name,last_name,email,password1,password2,dob,gender,type
 				return redirect('/poster/login')
 
@@ -142,10 +142,11 @@ def test2(request):
 	x=poster.objects.filter(user=request.user,title__contains="naruto")
 	return render(request,'poster/test.html',{'x':x})
 
-def test(request,your_name,last_name):
-
-		print your_name,last_name
-		return redirect('/poster/test2')
+def test(request):
+	email="mayank.mahavar@shephertz.co.in"
+	y="abcdefg"
+	mail(email,y)
+	return redirect('/poster/test2')
 @login_required
 def profile(request):
 
@@ -181,6 +182,7 @@ def createprofile(request):
 			x.profile_pic=form.files['profile_pic']
 			x.background_pic=form.files['background_pic']
 			x.Description=form.cleaned_data['Description']
+			x.about=form.cleaned_data['about']
 			x.save()
 		return  redirect('/poster/profile')
 	else:
@@ -217,11 +219,14 @@ def nature(request):
 	Category = poster.objects.filter(category__name='nature', user=request.user)
 	return render(request, 'poster/progress.html', {'anime': Category})
 
-def display(request):
+def display(request,id):
 	if request.method=="POST":
-		pass
+		user=UserProfile.objects.get(user=User)
+		user.cart = user.cart + " " + id
+		print user.cart
+		return redirect(request,'/poster/category/anime')
 	else:
-		pos=poster.objects.get(category__name='anime',title='naruto')
+		pos=poster.objects.filter(id=id)
 		return render(request,'poster/display.html',{'poster':pos})
 
 
@@ -233,13 +238,15 @@ def PosterUpload(request):
 			Cat=form.cleaned_data['category']
 			desc=form.cleaned_data['description']
 			Title=form.cleaned_data['title']
-			imag=form.cleaned_data['image']
+			imag1=form.cleaned_data['image1']
+			imag2=form.cleaned_data['image2']
+			imag3=form.cleaned_data['image3']
 			post=poster.objects.create(
 				user=request.user,
 				category=Cat,
 				title=Title,
 				description=desc,
-				image=imag
+				image1=imag1
 			)
 			if tags.objects.filter(title=form.cleaned_data['tags']) is False:
 				tag=tags.objects.create(
@@ -410,5 +417,17 @@ def failure(request):
 		print "Your Transaction ID for this transaction is ", txnid
 		print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
 	return render_to_response("poster/Failure.html", RequestContext(request, c))
+
+def cart(request):
+	if request.method=="POST":
+		pass
+	else:
+		return render(request,'poster/cart.html')
+
+def order(request):
+	if request.method=="POST":
+		pass
+	else:
+		return render(request,'poster/order.html')
 
 

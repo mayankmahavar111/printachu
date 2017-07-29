@@ -44,6 +44,7 @@ class ArtistProfileForm(forms.ModelForm):
             'profile_pic',
             'background_pic',
             'Description',
+            'about'
 
 
         )
@@ -56,7 +57,9 @@ class PosterForm(forms.ModelForm):
             'title',
             'description',
             'category',
-            'image',
+            'image1',
+            'image2',
+            'image3',
             'tags'
 
         )

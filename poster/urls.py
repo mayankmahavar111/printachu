@@ -8,7 +8,7 @@ urlpatterns=[
     url(r'logout/$',logout,{'template_name': 'poster/logout.html'}),
     #url(r'register/$', views.register, name='register'),
     url(r'^profile/$', views.profile),
-    url(r'^test/$',views.mail),
+    url(r'^test/$',views.test),
     url(r'^test2/$',views.test2),
     url(r'^register/$',views.saveRegister,name='saveRegister'),
     url(r'^buildprofile/$',views.createprofile),
@@ -22,6 +22,7 @@ urlpatterns=[
     url(r'^category/upload/$',views.PosterUpload),
     url(r'^search/$',views.search),
     url(r'^payments/', include('payments.urls')),
-    url(r'^display/$',views.display)
+    url(r'^display/(?P<id>[0-9]{1,10})/$',views.display),
+    url(r'^order/$',views.order)
    # url(r'^oauth/',include('paytmoauth.urls')),
 ]
