@@ -17,7 +17,7 @@
 
 
 <body>
-    {% if artist.profile_pic == ''  %}
+{% if artist.profile_pic == ''  %}
     <a href="/poster/buildprofile">You are one step close to complete your profile details</a>
 {% else %}
 <aside class="profile-card">
@@ -190,7 +190,6 @@
     <script src="{% static 'poster/js/morris.js' %}"></script>
     <script src="{% static 'poster/js/custom-scripts.js' %}"></script>
 
-{% endblock %}
 
 <div class="topbar">
 </div>
