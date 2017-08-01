@@ -20,8 +20,11 @@
    ================================================== -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{% static "poster/base.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "poster/font-awesome.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "poster/vendor.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "poster/main.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "poster/footer.css" %}" />
+
    <!-- script
    ================================================== -->
 	<script type="text/javascript" src={% static "poster/js/pace.min.js" %} ></script>
@@ -44,41 +47,33 @@
    <header class="main-header">
 
 
-			<div id="header">
-				<div>
-				<a href="#" class="logos"><img style="position:relative; width:150px;" src={% static "poster/images/ha.png" %} alt="" /></a>
-					<ul id="navigation">
-						<li class="menu">
-							<a href="about">Shop</a>
-							<ul class="primary">
-								<li>
-									<a href="product">Posters</a>
-								</li>
-							</ul>
-						</li>
-						<li class="menu">
-							<a href="artist">Artist</a>
-							<ul class="primary">
-								<li>
-									<a href="product">Our Artists</a>
-								</li>
-								<li>
-									<a style="position:absolute; margin-left:-78px;" href="product">Join us</a>
-								</li>
-							</ul>
-						</li>
-						<li class="menu">
-							<a href="blog">Blog</a>
-						</li>
-						<li>
-							<a href="contact">Info</a>
-						</li>
-						<li>
-							<a style="position:absolute; height:17px; width:17px; margin:-13px;" href="login"><img alt="Login" title="Login" src={% static "poster/images/login-icon-3048.png"%} /></a>
-						</li>
-					</ul>
+       	<!-- Header -->
+	<div class="tm-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+					<a href="#" class="tm-site-name"><img src="{% static "poster/images/white.png" %}" style="height:50px;" /></a>
+				</div>
+				<div class="col-lg-6 col-md-8 col-sm-9">
+					<div class="mobile-menu-icon">
+						<i class="fa fa-bars"></i>
+					</div>
+					<nav class="tm-nav">
+					<ul>
+							<li><a href="#" class="active">Home</a></li>
+        					<li><a href="#">Shop</a></li>
+							<li><a href="#">Artist</a></li>
+							<li><a href="#" >Login</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
+		</div>
+	</div>
+
+
+
+
 </header>
 
     <!-- Slideshow -->
@@ -475,6 +470,65 @@
       </section> <!-- /subscribe -->
 
    </div> <!-- /main-content-wrap -->
+
+
+
+    <footer class="footer-distributed">
+				<h3>Kala<span>Circle</span></h3>
+
+			<div class="footer-left">
+
+
+				<p class="footer-links">
+					<a href="#">Bulk Orders</a>
+					</br>
+					<a href="#">Blog</a>
+					</br>
+					<a href="#">Contact us</a>
+					</br>
+					<a href="#">About us</a>
+				</p>
+
+				<p class="footer-company-name">KalaCircle &copy; 2017</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>NITK Surathkal</span> Mangalore, India</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91 999 9999999</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@kalacircle.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-links">
+					<a style="color:white" href="#">Faq</a>
+					</br>
+					<a style="color:white" href="#">Cancellation & Refunds</a>
+					</br>
+					<a style="color:white" href="#">Terms and Conditions</a>
+					</br>
+					<a style="color:white" href="#">Privacy Policy</a>
+				</p>
+
+
+
+			</div>
+
+		</footer>
+
 
 
    <!-- footer
