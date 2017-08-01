@@ -3,7 +3,7 @@
 {% block body %}
     <ul>
     {% for c in anime %}
-        <li><a href="/poster/display/{{ c.id }}"><img src="{{ c.image1.url }}" style="width: 304px;height: 228px"> {% dic['{{ c.id }}'] %}</a></li>
+        <li><a href="/poster/display/{{ c.id }}"><img src="{{ c.image1.url }}" style="width: 304px;height: 228px"> </a></li>
         <li>{{ c.title }}</li>
         <li>{{ c.category }}</li>
         <li>{{ c.id }}</li>
