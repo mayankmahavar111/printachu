@@ -9,7 +9,7 @@ body {
   background-size: cover;
 }
 
-header img {
+header.profile-pic img {
   border-radius: 50%;
   margin: 20px auto;
   display: block;
