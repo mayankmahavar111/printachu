@@ -32,10 +32,16 @@
 					</div>
 					<nav class="tm-nav">
 					<ul>
+                            {% if user.is_authenticated %}
 							<!--<li><a href="#" class="active">Home</a></li>-->
-        					<li><a href="#">Shop</a></li>
+                                <li><a href="/poster/profile">Dashboard</a></li>
+                                <li><a href="/poster/cart">Cart</a></li>
+                                <li><a href="/poster/logout">LogOut</a> </li>
+                            {% else %}
+        					<li><a href="/poster/designs">Designs</a></li>
 							<li><a href="#">Artist</a></li>
 							<li><a href="/poster/login" >Login</a></li>
+                            {% endif %}
 						</ul>
 					</nav>
 				</div>

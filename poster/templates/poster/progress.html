@@ -22,8 +22,8 @@
         <div class="row">
             {% for c in anime %}
             <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img style="#" class="img-responsive" src={{ c.image1.url }} alt="">
+                <a href="/poster/display/{{ c.id }}">
+                    <img  class="img-responsive" src={{ c.image1.url }} alt="">
                 </a>
             </div>
             {% endfor %}<!--
