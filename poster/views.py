@@ -429,10 +429,15 @@ def cart(request):
 	else:
 		user=UserProfile.objects.get(user=request.user)
 		x=user.cart.split(" ")
-		print x[1:]
-		i=0
+		dic={}
+		for i in x[1:]:
+			try:
+				dic[i]=dic[i]+1
+			except:
+				dic[i]=1
+		print dic['2']
 		design=poster.objects.filter(pk__in=x[1:])
-		return render(request,'poster/cart.html',{'anime':design})
+		return render(request,'poster/cart.html',{'anime':design,'dic':dic})
 
 def order(request):
 	if request.method=="POST":
