@@ -229,7 +229,7 @@ def display(request,id):
 			user.cart = user.cart + " " + id
 		print user.cart
 		user.save()
-		return redirect('/poster')
+		return redirect('/poster/designs')
 	else:
 		pos=poster.objects.filter(id=id)
 		return render(request,'poster/display.html',{'poster':pos})
@@ -427,17 +427,21 @@ def cart(request):
 	if request.method=="POST":
 		pass
 	else:
+		if not User.is_authenticated:
+			return redirect('/poster/login')
 		user=UserProfile.objects.get(user=request.user)
 		x=user.cart.split(" ")
 		dic={}
 		for i in x[1:]:
+			i=int(i)
 			try:
 				dic[i]=dic[i]+1
 			except:
 				dic[i]=1
-		print dic['2']
+		print dic[2]
 		design=poster.objects.filter(pk__in=x[1:])
-		return render(request,'poster/cart.html',{'anime':design,'dic':dic})
+		temp=0
+		return render(request,'poster/cart.html',{'anime':design,'dic':dic,'x':temp})
 
 def order(request):
 	if request.method=="POST":
