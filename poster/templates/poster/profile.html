@@ -25,7 +25,7 @@
   <header class="profile-pic">
 
     <a href="">
-      <img src="{{ artist.profile_pic.url }}">
+      <img class="profile-pic" src="{{ artist.profile_pic.url }}">
     </a>
 
     <!-- the username -->
@@ -44,7 +44,7 @@
 
 </aside>
 
-    <div id="wrapper">
+    <div id="wrapper" >
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -65,17 +65,17 @@
                         <a class="active-menu" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user"></i> My Profile </a>
-                    </li>
-					<li>
-                        <a href="#"><i class="fa fa-list-alt"></i> About Me</a>
+                        <a href="#"><i class="fa fa-money"></i> Sales</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-money"></i> Sales</a>
+                        <a href="/poster/category/upload"><i class="fa fa-upload"></i> Upload Designs</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-paint-brush"></i> Designs</a>
+                        <a href="/poster/category/anime"><i class="fa fa-paint-brush"></i> Designs</a>
+                    </li>
+					<li>
+                        <a href="/poster/buildprofile"><i class="fa fa-list-alt"></i> Edit Profile </a>
                     </li><!--
                     <li>
                         <a href="#"><i class="fa fa-university"></i> Account Section </a>
@@ -132,16 +132,16 @@
                 <!-- /. ROW  -->
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
+                    <div class="col-md-3 col-sm-12 col-xs-12"><a href="/poster/category/anime">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
                             <div class="panel-body">
                                 <i class="fa fa-paint-brush fa-5x"></i>
-                                <h3>13</h3>
+                                <h3>0</h3>
                             </div>
-                            <div class="panel-footer back-footer-green">
-                                Posters
+                            <div class="panel-footer back-footer-brown">
+                                Designs
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-blue">
@@ -155,30 +155,30 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
+                        <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
                                 <i class="fa fa fa-money fa-5x"></i>
                                 <h3>0 </h3>
                             </div>
-                            <div class="panel-footer back-footer-red">
+                            <div class="panel-footer back-footer-green">
                                 Balance
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                        <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
-                                <i class="fa fa-users fa-5x"></i>
+                                <i class="fa fa-heart fa-5x"></i>
                                 <h3>0 </h3>
                             </div>
-                            <div class="panel-footer back-footer-brown">
-                                Followers
+                            <div class="panel-footer back-footer-red">
+                                Likes
                             </div>
                         </div>
                     </div>
                 </div>
 
-				<footer><p>All right reserved. by: TeamPrintachu </p></footer>
+				<footer><p>All right reserved. by: Team Kalācircle </p></footer>
             </div>
         </div>
     </div>
