@@ -11,7 +11,6 @@
         border-radius: 15px;
         padding: 30px;
         background: rgba(129,0,127,0.4);
-        color: white;
         margin-left:525px;
     }
     .loginform:hover{
@@ -146,12 +145,20 @@ body {
     </style>
 
 
-<form method="post" class="loginform">
+<form method="post" class="loginform" style="width: 330px;">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% for field in form %}
+    <div class="form-group">
+
+            <span class="text-danger small">{{ field.errors }}</span>
+
+        <label style="color: white">{{ field.label_tag }}</label>
+        <div style="width: 100px">{{ field }}</div>
+    </div>
+    {%  endfor %}
                 <button style="margin-left: 80px" type="submit" class="button">Login</button>
-    <p style="text-align:center; margin-bottom: 10px">OR</p>
-    <span style="margin-left: 10px"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
+    <p style="text-align:center; margin-bottom: 10px; color: whitesmoke">OR</p>
+    <span style="margin-left: 10px;"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
         <a class="google" href="#"><span style="margin-left: -5px">Gmail</span></a></div>
             </form>
 {% endblock %}
