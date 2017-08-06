@@ -56,7 +56,6 @@ class PosterForm(forms.ModelForm):
         fields=(
             'title',
             'description',
-            'category',
             'image1',
             'image2',
             'image3',

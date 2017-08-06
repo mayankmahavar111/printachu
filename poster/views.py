@@ -240,7 +240,6 @@ def PosterUpload(request):
 		form=PosterForm(request.POST,request.FILES)
 		user=UserProfile.objects.get(user=request.user)
 		if form.is_valid():
-			Cat=form.cleaned_data['category']
 			desc=form.cleaned_data['description']
 			Title=form.cleaned_data['title']
 			imag1=form.cleaned_data['image1']
@@ -248,10 +247,12 @@ def PosterUpload(request):
 			imag3=form.cleaned_data['image3']
 			post=poster.objects.create(
 				user=request.user,
-				category=Cat,
+				category='all',
 				title=Title,
 				description=desc,
-				image1=imag1
+				image1=imag1,
+				image2=imag2,
+				imag3=imag3,
 			)
 			if tags.objects.filter(title=form.cleaned_data['tags']) is False:
 				tag=tags.objects.create(
@@ -452,3 +453,10 @@ def order(request):
 def allDesigns(request):
 	Category = poster.objects.all()
 	return render(request, 'poster/progress.html', {'anime': Category})
+
+login_required()
+def all(request):
+	Category=poster.objects.filter(user=request.user)
+
+def about(request):
+	return render(request,'poster/about.html')

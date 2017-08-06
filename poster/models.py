@@ -57,6 +57,7 @@ class poster(models.Model):
     image3=models.ImageField(default="")
     title=models.CharField(default='',max_length=100)
     quora_count=models.IntegerField(default=0)
+    like=models.IntegerField(default=0)
 
 
     def __str__(self):
