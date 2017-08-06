@@ -33,19 +33,18 @@
         <div class="col-sm-15">{{ field }}</div>
     </div>
     {%  endfor %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
     <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
 
 <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
 <input type="submit" name="submit" value="submit" />
 
 </form>
-    <!--div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success">Submit</button>
-        </div>
-    </div-->
-</form>
-
 
    <!-- <form action="" method="post" class="registerform" id="register">
         Name<br>
