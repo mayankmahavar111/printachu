@@ -7,19 +7,36 @@
         margin-top: 50px;
         left: 50%;
         top: 45px;
-        border-style: solid;
+        border: solid black;
         border-radius: 15px;
         padding: 30px;
-        background-color: darkslategray;
-        color: red;
+        background: rgba(129,0,127,0.4);
         margin-left:525px;
     }
-    .loginbutton{
-        position: relative;
-        left: 100px;
-        background-color: darkslategray;
-        color: white;
+    .loginform:hover{
+        background: rgba(129,0,127,0.6);
     }
+    .button{
+        margin: 10px 0 10px 0;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    padding: 5px 32px 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    font-family: 'Open Sans', sans-serif;
+	font-weight:700;
+    color: #ffffff;
+        height: 30px;
+        border-radius: 6px;
+    }
+    .button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
     .facebook {
         display: inline-block;
     text-align: center;
@@ -35,12 +52,15 @@
     color: #ffffff;
     text-decoration: none;
 	margin-right: 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
     .facebook:hover,
 .facebook:focus {
     background: #37528c;
     color: #ffffff;
     text-decoration: none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .facebook:active {
     background: #1ca4d6;
@@ -78,12 +98,15 @@
 	font-weight:700;
     color: #ffffff;
     text-decoration: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 .google:hover,
 .google:focus {
     background: #c74534;
     color: #ffffff;
     text-decoration: none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .google:active {
     background: #1ca4d6;
@@ -122,14 +145,20 @@ body {
     </style>
 
 
-<form method="post" class="loginform">
+<form method="post" class="loginform" style="width: 330px;">
                 {% csrf_token %}
-    <p>Already have an account?</p>
-                {{ form.as_p }}
-                <button type="submit" class="loginbutton">Login</button>
-    <p style="text-align:center">OR</p>
-    <div class="login-options" style="color:white">Choose one of the following<br>
-    <span style="margin-left: -5px"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
+                {% for field in form %}
+    <div class="form-group">
+
+            <span class="text-danger small">{{ field.errors }}</span>
+
+        <label style="color: white">{{ field.label_tag }}</label>
+        <div style="width: 100px">{{ field }}</div>
+    </div>
+    {%  endfor %}
+                <button style="margin-left: 80px" type="submit" class="button">Login</button>
+    <p style="text-align:center; margin-bottom: 10px; color: whitesmoke">OR</p>
+    <span style="margin-left: 10px;"><a class="facebook" class="socialaccount_provider facebook" href="/accounts/facebook/login/?process=login">Facebook</a></span>
         <a class="google" href="#"><span style="margin-left: -5px">Gmail</span></a></div>
             </form>
 {% endblock %}

@@ -1,29 +1,120 @@
 {%extends 'poster/base.html'%}
 {% block body %}
 <!DOCTYPE html>
-<html>
+<head>
 {% load static %}
     <meta charset="utf-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-</html>
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>#}
 
-<body>
-<div class="topbar">
-</div>
-<div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link type="text/css" href="{% static "poster/buy_main.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.css" type="text/css">
+<style>
+    .btn{
+        padding: 1rem 2rem;
+        font-size: 2rem;
+    }
+    h1, .h1 {
+    font-size: 5rem;
+}
+    h6, .h6 {
+    font-size: 2rem;
+}
+    h3, .h3 {
+    font-size: 3rem;
+}
+    h4, .h4 {
+    font-size: 2.75rem;
+}
+</style>
+</head>
 
-        <form method="post">
+<body style="font-size: 2rem;">
         {% csrf_token %}
-        <ul>
-    {% for c in poster %}
-        <li><img src="{{ c.image1.url }}" style="width: 304px;height: 228px"></li>
-        <li>{{ c.title }}</li>
-        <li>{{ c.category }}</li>
+<div>
         <button type="submit" class="btn btn-success">Add to Cart.</button>
+<<<<<<< HEAD
         <button type="submit" class="btn btn-success" ><a href="/poster/cart">Buy Now</a></button>
     {% endfor %}
     </ul>
         </form>
+=======
+>>>>>>> 602dc1eae594a0748d7a322d45e7f6e8f939be44
 </div>
+
+    {% for c in poster %}
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+        <div class="row">
+          <img id="big_image" class="center-block img-fluid d-block" style="width: auto; height: 500px; border: solid black;" src="{{ c.image1.url }}">
+        </div>
+        <div class=row style="margin:25px -90px 100px 0;">
+        <div class="col-md-3">
+        <img onclick="document.getElementById('big_image').src='{{ c.image1.url }}'" class="center-block img-fluid d-block" style="width: auto; border: solid black; height: 180px;" src="{{ c.image1.url }}">
+        </div>
+        <div class="col-md-3">
+        <img onclick="document.getElementById('big_image').src='{{ c.image1.url }}'" class="center-block img-fluid d-block" style="width: auto; border: solid black; height: 180px;" src="{{ c.image1.url }}">
+        </div>
+        <div class="col-md-3">
+        <img onclick="document.getElementById('big_image').src='{{ c.image1.url }}'" class="center-block img-fluid d-block" style="width: auto; border: solid black; height: 180px;" src="{{ c.image1.url }}">
+        </div>
+      </div>
+        </div>
+        <div class="col-md-6">
+          <h1 style="margin-left: -5px">{{ c.title }}</h1>
+          <h6 style="margin-left: -5px">{{ c.category }}</h6>
+          <h3 style="margin-left: -5px">Rs. 300</h3>
+          <div class="row btn-section">
+            <div class="row btn-section">
+              <div class="btn btn-main2">
+                <h4 style="margin-left: 10px">Size :</h4>
+            </div>
+              <div class="btn btn-main1">S</div>
+              <div class="btn btn-main1">M</div>
+              <div class="btn btn-main1">L</div>
+              <div class="btn btn-main1">XL</div>
+              <div class="btn btn-main1">XXL</div>
+            </div>
+            <div class="row btn-section">
+              <div class="btn btn-main2">
+                <h4 style="margin-left: 10px">Qty  :</h4>
+              </div>
+              <div class="btn btn-main1">+</div>
+              <div class="btn btn-main2" style="margin-left: 0;">
+                <h4>1</h4>
+              </div>
+              <div class="btn btn-main1">-</div>
+            </div>
+            <div class="row" style="margin-top: -10px; margin-left: -100px;font-size: 1.5rem;   ">
+              See size chart
+            </div>
+            <ul class="check-list" style="text-align: left;">
+              <li>100% Soft Cotton Fabric</li>
+              <li>Rounded Neck</li>
+              <li>Regular-Fit</li>
+              <li>Half-sleeved</li>
+              <li>No Rubber Prints</li>
+            </ul>
+          </div>
+          <div class="row btn-section">
+            <div class="btn btn-main btn-lg">Add to Cart</div>
+            <div class="btn btn-main btn-lg">Buy now</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+      <div style="border: solid black;padding: 10px">
+      <h4>Description</h4>
+      <p>Images ifs douane blancs pic roches. Ce endort je empire qu tempes il parler. Souleve ballots exemple jaillir comprit sur eue. Or chez main cime du vint vaut soir. Fabriquer tiendrons eux sinistres mur militaire. Habilement etonnement ca souhaitait consentiez me un ca. Le sa je tristement rougeatres au compagnies frissonner pressentit gourmettes. Sanctifier simplement toi manoeuvres son ces crispation miserables vie fraternite.</p>
+      </div>
+    </div>
+  </div>
+{#  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>#}
+{#  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>#}
+{#  <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>#}
 </body>
 {% endblock %}
