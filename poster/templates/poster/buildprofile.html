@@ -1,7 +1,7 @@
 {%extends 'poster/base.html'%}
 {% block body %}
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" style="margin-bottom: 300px;">
     {% csrf_token %}
     {% for field in form %}
     <div class="form-group">

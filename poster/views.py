@@ -227,7 +227,7 @@ def display(request,id):
 			user.cart = id
 		else:
 			user.cart = user.cart + " " + id
-		print user.cart
+		#print user.cart
 		user.save()
 		return redirect('/poster/designs')
 	else:

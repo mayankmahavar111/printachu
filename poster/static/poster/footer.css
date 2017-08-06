@@ -206,17 +206,20 @@ body { overflow-x: hidden; }
 .tm-nav {
 	display: block;
 	overflow: hidden;
+
 }
 .tm-nav li {
 	list-style: none;
 	float: left;
 }
 .tm-nav li a {
-	color: #838383;
+	color: white;
 	display: block;
 	padding: 45px 34px 15px 34px;
 	text-transform: uppercase;
 	transition: all 0.3s ease;
+	line-height: 1.8;
+
 }
 .tm-nav li a.active,
 .tm-nav li a:focus,
