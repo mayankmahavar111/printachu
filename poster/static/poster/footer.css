@@ -191,7 +191,6 @@ body { overflow-x: hidden; }
 	position: relative;
 	z-index: 100;
 }
-.tm-site-name-container { padding-top: 20px; }
 .tm-site-name {
 	color: #FCDD44;
 	font-size: 27px;
