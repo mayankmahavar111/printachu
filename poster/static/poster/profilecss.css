@@ -21,7 +21,7 @@ aside {
   border-top: 0px solid #26A69A;
   border-bottom: 0px solid #00695C;
   border-radius: 50%;
-  margin: 0 auto;
+  margin-left: -200px;
   display: block;
   height: 250px;
   width: 250px;
