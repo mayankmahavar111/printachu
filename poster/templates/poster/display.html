@@ -10,27 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link type="text/css" href="{% static "poster/buy_main.css" %}" rel="stylesheet">
     <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.css" type="text/css">
-<style>
-    .btn{
-        padding: 1rem 2rem;
-        font-size: 2rem;
-    }
-    h1, .h1 {
-    font-size: 5rem;
-}
-    h6, .h6 {
-    font-size: 2rem;
-}
-    h3, .h3 {
-    font-size: 3rem;
-}
-    h4, .h4 {
-    font-size: 2.75rem;
-}
-</style>
 </head>
 
-<body style="font-size: 2rem;">
+<body>
         {% csrf_token %}
 <div>
         <button type="submit" class="btn btn-success">Add to Cart.</button>
@@ -64,7 +46,7 @@
             <div class="row btn-section">
               <div class="btn btn-main2">
                 <h4 style="margin-left: 10px">Size :</h4>
-            </div >
+            </div>
               <div class="btn btn-main1">S</div>
               <div class="btn btn-main1">M</div>
               <div class="btn btn-main1">L</div>
@@ -81,7 +63,7 @@
               </div>
               <div class="btn btn-main1">-</div>
             </div>
-            <div class="row" style="margin-top: -10px; margin-left: -100px;font-size: 1.5rem;">
+            <div class="row" style="margin-top: -10px; margin-left: -100px">
               See size chart
             </div>
             <ul class="check-list" style="text-align: left;">
