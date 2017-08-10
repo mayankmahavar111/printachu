@@ -1,6 +1,5 @@
 {%extends 'poster/base.html'%}
 {% block body %}
-<!DOCTYPE html>
 <head>
 {% load static %}
     <meta charset="utf-8">
@@ -29,18 +28,14 @@
 }
 </style>
 </head>
-
 <body style="font-size: 2rem;">
         {% csrf_token %}
 <div>
         <button type="submit" class="btn btn-success">Add to Cart.</button>
-<<<<<<< HEAD
         <button type="submit" class="btn btn-success" ><a href="/poster/cart">Buy Now</a></button>
-    {% endfor %}
+
     </ul>
         </form>
-=======
->>>>>>> 602dc1eae594a0748d7a322d45e7f6e8f939be44
 </div>
 
     {% for c in poster %}

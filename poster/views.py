@@ -439,7 +439,7 @@ def cart(request):
 				dic[i]=dic[i]+1
 			except:
 				dic[i]=1
-		print dic[2]
+
 		design=poster.objects.filter(pk__in=x[1:])
 		temp=0
 		return render(request,'poster/cart.html',{'anime':design,'dic':dic,'x':temp})
