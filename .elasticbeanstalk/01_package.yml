@@ -2,3 +2,6 @@ packages:
   yum:
     git: []
     postgresql93-devel: []
+    libjpeg-turbo-devel: []
+    zlib-devel: []
+    freetype-devel: []
