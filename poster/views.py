@@ -460,3 +460,6 @@ def all(request):
 
 def about(request):
 	return render(request,'poster/about.html')
+
+def bulk(request):
+	return render(request,'poster/bulk.html')

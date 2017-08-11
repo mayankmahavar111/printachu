@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='orders.kalacircle@gmail.com'
-EMAIL_HOST_PASSWORD='Orders#Kala'
+EMAIL_HOST_USER='orders@kalacircle.com'
+EMAIL_HOST_PASSWORD='KalaOr17'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
