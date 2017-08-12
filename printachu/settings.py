@@ -25,7 +25,7 @@ SECRET_KEY = '5n*1g1g==+r2%a(#op9#+n@cm37u%xfxf3zci42e3d9e0!jgj8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://printachu.ap-south-1.elasticbeanstalk.com/']
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='orders@kalacircle.com'

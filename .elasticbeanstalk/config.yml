@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: null
+    environment: printachu-dev
     group_suffix: null
 environment-defaults:
   printachu-dev:
