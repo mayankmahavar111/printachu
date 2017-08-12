@@ -28,7 +28,8 @@ urlpatterns=[
     url(r'^order/$',views.order),
     url(r'^cart/$',views.cart),
     url(r'^bulkorder/$',views.bulk),
-    url(r'about/$',views.about)
+    url(r'^about/$',views.about),
+    url(r'^contact/$',views.contanct),
 
    # url(r'^oauth/',include('paytmoauth.urls')),
 ]

@@ -14,7 +14,7 @@ from django.contrib.auth import authenticate,login
 from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster,tags
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
-from .forms import SearchForm,PosterForm,RegistrationForm
+from .forms import SearchForm,PosterForm,RegistrationForm,ContactForm
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from payments import get_payment_model, RedirectNeeded
@@ -463,3 +463,26 @@ def about(request):
 
 def bulk(request):
 	return render(request,'poster/bulk.html')
+def contanct(request):
+	if request.method=="POST":
+		form=ContactForm(request.POST)
+		if form.is_valid():
+			name=form.cleaned_data['Name']
+			email=form.cleaned_data['Email']
+			phone=form.cleaned_data['Phone']
+			subject=form.cleaned_data['Subject']
+			description=form.cleaned_data['Description']
+			from_email = settings.EMAIL_HOST_USER
+			to_email = "info@kalacircle.com"
+
+			send_mail(
+				subject,
+				name + email+ phone+ description,
+				from_email,
+				[to_email],
+				fail_silently=False
+			)
+			return redirect('/poster/contact')
+	else:
+		form=ContactForm()
+		return render(request,'poster/contact.html',{'form':form})

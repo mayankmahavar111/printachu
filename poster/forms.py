@@ -65,3 +65,10 @@ class PosterForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search=forms.CharField(label="Search ")
+
+class ContactForm(forms.Form):
+    Name=forms.CharField(required=True,label="Name *")
+    Email=forms.EmailField(required=True,label='Email *')
+    Phone=forms.CharField(required=True,label='Phone *')
+    Subject=forms.CharField(required=True,label='Subject *')
+    Description=forms.CharField(required=True,label='Description *')
