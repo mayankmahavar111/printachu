@@ -1,13 +1,13 @@
 branch-defaults:
   master:
-    environment: printachu-dev
+    environment: null
     group_suffix: null
 environment-defaults:
   printachu-dev:
     branch: null
     repository: null
 global:
-  application_name: printachu-eb
+  application_name: printachu
   branch: null
   default_ec2_keyname: printachu
   default_platform: Python 2.7
