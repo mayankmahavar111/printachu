@@ -7,7 +7,7 @@ environment-defaults:
     branch: null
     repository: null
 global:
-  application_name: printachu
+  application_name: printachu-eb
   branch: null
   default_ec2_keyname: printachu
   default_platform: Python 2.7
