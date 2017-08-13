@@ -1,20 +1,289 @@
-<<<<<<< HEAD
 {%extends 'poster/base.html'%}
 {% block body %}
-<!DOCTYPE html>
-<head>
-{% load static %}
+<html lang="en"><head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>About Us - NITK IRIS</title>
+  <!-- Font Awesome -->
+  <link href="https://cdn.iris.nitk.ac.in/new_layout/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Core CSS -->
+  <link href="https://cdn.iris.nitk.ac.in/about/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="https://cdn.iris.nitk.ac.in/about/css/agency.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+      .fa-d
+      {
+          margin-top: 9px;
+      }
+      .info{
+          box-shadow: 0px 3px 4px #999;
+          border-color: white;
+          color: black;
+          min-width: 120px;
+          width: 80%;
+          margin-left: 10%;
+          margin-right: 10%;
+          margin-top: 2%;
+          margin-bottom: 2%;
+          padding-left: 2%;
+          padding-right: 2%;
+          padding-top:0.5%;
+          padding-bottom: 1%;
+          text-align: justify;
+          min-height: 350px;
+      }
+      .info1{
+          height:350px;
+          margin:10%;
+      }
+      #team > .container > .row > .info{
+          height:50%;
+      }
+      .info:hover{
+          box-shadow: 0 4px 15px #888;
+      }
+      #services{
+          padding-top: 80px;
+          padding-bottom: 2%;
+      }
+      @media (max-width: 767px)
+      {
+          #logo_1 {
+              display: none;
+          }
+          #services{
+              padding-top: 50px;
+          }
+      }
+      .navbar-default .navbar-nav>.active>a:hover{
+          background-color: #4f0000;
+      }
+
+      .bg-light-gray {
+          background-color: #f2f2f2;
+      }
+
+      li a:hover {
+          background-color: white !important;
+          color: black !important;
+          border-radius: 2px;
+      }
+      ul.list-inline.social-buttons > li > a:focus{
+          background-color: black;
+      }
+  </style>
 </head>
-<body>
-<h1>About Us</h1>
-<p>Absvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidhAbsvgog isigig diugis is isiuidh</p>
-<h2>Our Team</h2>
-<p>abab abababab abababab abababab abab</p>
-</body>
+
+<body id="page-top" class="index" style="background-color:#f2f2f2">
+
+
+
+<section id="services">
+  <div class="panel panel-default info">
+    <div class="panel-body">
+      <h3 class="service-heading" style="font-size: 30px;"><center>ABOUT US</center></h3>
+      <p class="text-muted" style="font-size: 18px; color:#333;">A team of motivated students of NITK, ventured to build and develop an e-portal  for enhanced  student –teacher interaction. Under the guidance of Dr K V Gangadharan and with the resources provided by the CSD (Center for System Design) laboratory, the team has successfully developed a website with functionality to support efficient administration. Apart from the general advantages of switching to an e-platform, what makes this an indispensable alternative is that it avoids the negative connotations of security of data by strong encryption. Also, compatibility across various platforms and software has been considered. We have tried our best to maintain a strong backend to deliver the best service from our server. In case of any error, please try to send a screenshot of it to one of the developers.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading" style="margin-bottom:1%;">Our Team</h2><br>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static 'poster/images/1.jpg' %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Manmohan Malani</h4>
+              <p class="text-muted">Chief Executive Officer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/revankar.akshay"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/akshayrevankar"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Vivek Khedu</h4>
+              <p class="text-muted">CFO</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/kiran.ramesh.1995"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" align="middle" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Mayank Mahaveer</h4>
+              <p class="text-muted">Backend Developer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://step.nitk.ac.in/hrms/pageshttps://cdn.iris.nitk.ac.in/about#"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" align="middle" style=" width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Manohar Madanu</h4>
+              <p class="text-muted">Front End Developer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/94hardikpatel" target="_blank"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=AAIAABhJeTkBJAUtEw5akpm1P7NqAvOMMSwpqMc&trk=nav_responsive_tab_profile"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Lokaksha B M</h4>
+              <p class="text-muted">Front End Developer</p>
+              <p class="text-muted"></p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://step.nitk.ac.in/hrms/pageshttps://cdn.iris.nitk.ac.in/about#"><i class="fa fa-d fa-facebook"></i></a>
+                 </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=AAIAABvMfi8BkYXVnaxAyx6UtFTp0QNgDSa5IbQ&trk=nav_responsive_tab_profile"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Pratik Lohiya</h4>
+              <p class="text-muted">Front End Developer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/rajayuv"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=381747623"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" align="middle" style=" width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Manohar Madanu</h4>
+              <p class="text-muted">Front End Developer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/94hardikpatel" target="_blank"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=AAIAABhJeTkBJAUtEw5akpm1P7NqAvOMMSwpqMc&trk=nav_responsive_tab_profile"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Lokaksha B M</h4>
+              <p class="text-muted">Front End Developer</p>
+              <p class="text-muted"></p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://step.nitk.ac.in/hrms/pageshttps://cdn.iris.nitk.ac.in/about#"><i class="fa fa-d fa-facebook"></i></a>
+                 </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=AAIAABvMfi8BkYXVnaxAyx6UtFTp0QNgDSa5IbQ&trk=nav_responsive_tab_profile"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default info info1">
+          <div class="panel-body">
+            <div class="team-member">
+              <img class="img-circle" src="{% static "poster/images/2.jpg" %}" style="width:150px;height:150px;border:solid 1px;box-shadow:0 0 8px #999; border-color:#999;">
+              <h4>Pratik Lohiya</h4>
+              <p class="text-muted">Front End Developer</p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://www.facebook.com/rajayuv"><i class="fa fa-d fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=381747623"><i class="fa fa-d fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+</body></html>
 {% endblock %}
-=======
-{% extends 'poster/base.html' %}
-{% block body %}
-    This is about us page.
-{% endblock %}
->>>>>>> origin/master

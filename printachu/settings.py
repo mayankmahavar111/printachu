@@ -25,7 +25,7 @@ SECRET_KEY = '5n*1g1g==+r2%a(#op9#+n@cm37u%xfxf3zci42e3d9e0!jgj8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://printachu.ap-south-1.elasticbeanstalk.com/']
+ALLOWED_HOSTS = ['http://printachu.ap-south-1.elasticbeanstalk.com/','127.0.0.1']
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='orders@kalacircle.com'
@@ -115,12 +115,8 @@ if 'RDS_DB_NAME' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'printachu',
-            'USER': 'printachu',
-            'PASSWORD': 'printachu',
-            'HOST': 'localhost',
-            'PORT': '5432',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME':os.path.join(BASE_DIR,'db.sqlite3')
         }
     }
 
