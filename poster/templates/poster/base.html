@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href={% static 'poster/style.css' %} />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static "poster/footer.css" %}" />
+<link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
 </head>
 <body>
 <header class="main-header">
@@ -40,9 +41,9 @@
                                 <li><a href="/poster/cart">Cart</a></li>
                                 <li><a href="/poster/logout">LogOut</a> </li>
                             {% else %}
-        					<li><a href="/poster/designs">Designs</a></li>
-							<li><a href="#">Artist</a></li>
-							<li><a href="/poster/login" >Login</a></li>
+        					<li><a style="text-decoration:none;" href="/poster/designs">Designs</a></li>
+							<li><a href="#" style="text-decoration:none;">Artist</a></li>
+							<li><a href="/poster/login" style="text-decoration:none;">Login</a></li>
                             {% endif %}
 						</ul>
 					</nav>

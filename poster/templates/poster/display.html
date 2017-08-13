@@ -10,7 +10,93 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link type="text/css" href="{% static "poster/buy_main.css" %}" rel="stylesheet">
     <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 <style>
+    #myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
     .btn{
         padding: 1rem 2rem;
         font-size: 2rem;
@@ -32,9 +118,6 @@
 
 <body style="font-size: 2rem;">
         {% csrf_token %}
-<div>
-        <button type="submit" class="btn btn-success">Add to Cart.</button>
-</div>
 
     {% for c in poster %}
   <div class="py-5">
@@ -57,33 +140,105 @@
       </div>
         </div>
         <div class="col-md-6">
-          <h1 style="margin-left: -5px">{{ c.title }}</h1>
-          <h6 style="margin-left: -5px">{{ c.category }}</h6>
+          <h1 style="margin-left: -5px;font-variant: small-caps;font-family: quicksand; font-weight: bold; font-size:70px;">{{ c.title }}</h1>
+          <h6 style="margin-left: -5px">By {{ c.user.first_name }}</h6>
           <h3 style="margin-left: -5px">Rs. 300</h3>
           <div class="row btn-section">
             <div class="row btn-section">
               <div class="btn btn-main2">
                 <h4 style="margin-left: 10px">Size :</h4>
             </div>
-              <div class="btn btn-main1">S</div>
-              <div class="btn btn-main1">M</div>
-              <div class="btn btn-main1">L</div>
-              <div class="btn btn-main1">XL</div>
-              <div class="btn btn-main1">XXL</div>
+              <div class="btn btn-main1" id="size1" onclick="size_change(1)">S</div>
+              <div class="btn btn-main1" id="size2" onclick="size_change(2)">M</div>
+              <div class="btn btn-main1" id="size3" onclick="size_change(3)">L</div>
+              <div class="btn btn-main1" id="size4" onclick="size_change(4)">XL</div>
+              <div class="btn btn-main1" id="size5" onclick="size_change(5)">XXL</div>
             </div>
+              <img id="myImg" style="height: 20px; margin-left: 100px; margin-top: -15px" src="{% static "poster/images/see_size.png" %}"/>
             <div class="row btn-section">
               <div class="btn btn-main2">
-                <h4 style="margin-left: 10px">Qty  :</h4>
+                <h4 style="margin-left: -400px">Qty  :</h4>
               </div>
-              <div class="btn btn-main1">+</div>
+              <div style="margin-left: -150px" id="minus" class="btn btn-main1">-</div>
               <div class="btn btn-main2" style="margin-left: 0;">
-                <h4>1</h4>
+                  <h4 id="qty"></h4>
               </div>
-              <div class="btn btn-main1">-</div>
+              <div class="btn btn-main1" id="plus">+</div>
             </div>
-            <div class="row" style="margin-top: -10px; margin-left: -100px;font-size: 1.5rem;   ">
-              See size chart
-            </div>
+              <!-- The Modal -->
+                <div id="myModal" class="modal">
+                 <span class="close">&times;</span>
+                  <img class="modal-content" id="img01" src="{% static "poster/images/shirt-size-chart-unisex.jpg" %}">
+                </div>
+
+              <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+img.onclick = function(){
+    modal.style.display = "block";
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+var qty=1;
+plus.onclick = function(){
+    if(qty<20)
+    qty++;
+document.getElementById("qty").innerHTML =qty;
+}
+minus.onclick = function(){
+    if(qty>1)
+    qty--;
+document.getElementById("qty").innerHTML =qty;
+}
+document.getElementById("qty").innerHTML =qty;
+
+var size=0;
+function size_change(size1) {
+   size=size1;
+   if(size==1){
+       document.getElementById("size1").style.backgroundColor = "#FFFFFF";
+       document.getElementById("size1").style.color = "#590057";}
+   else{
+       document.getElementById("size1").style.backgroundColor ="#590057";
+       document.getElementById("size1").style.color = "#FFFFFF";}
+   if(size==2){
+       document.getElementById("size2").style.backgroundColor = "#FFFFFF";
+       document.getElementById("size2").style.color = "#590057";}
+   else{
+       document.getElementById("size2").style.backgroundColor ="#590057";
+       document.getElementById("size2").style.color = "#FFFFFF";}
+   if(size==3){
+       document.getElementById("size3").style.backgroundColor = "#FFFFFF";
+       document.getElementById("size3").style.color = "#590057";}
+   else{
+       document.getElementById("size3").style.backgroundColor = "#590057";
+       document.getElementById("size3").style.color = "#FFFFFF";}
+   if(size==4){
+       document.getElementById("size4").style.backgroundColor = "#FFFFFF";
+       document.getElementById("size4").style.color = "#590057";}
+   else{
+       document.getElementById("size4").style.backgroundColor = "#590057";
+       document.getElementById("size4").style.color = "#FFFFFF";}
+   if(size==5){
+       document.getElementById("size5").style.backgroundColor = "#FFFFFF";
+       document.getElementById("size5").style.color = "#590057";}
+   else{
+       document.getElementById("size5").style.backgroundColor = "#590057";
+       document.getElementById("size5").style.color = "#FFFFFF";}
+}
+</script>
+
             <ul class="check-list" style="text-align: left;">
               <li>100% Soft Cotton Fabric</li>
               <li>Rounded Neck</li>

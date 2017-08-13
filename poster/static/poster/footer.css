@@ -211,6 +211,7 @@ body { overflow-x: hidden; }
 	float: left;
 }
 .tm-nav li a {
+	font-family: 'Asul', sans-serif;
 	color: white;
 	display: block;
 	padding: 45px 34px 15px 34px;

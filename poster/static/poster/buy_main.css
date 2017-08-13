@@ -29,10 +29,11 @@ header h2{color: #9bb1e0;font-size:1.8em;font-weight: 200;}
 
 /* Buttons */
 .btn-section{max-width: 25em; position: relative; text-align: center;}
-.btn-main{color: #ffffff;background-color: #ff8c3f;font-size:50px;font-weight:700;padding:20px 40px;margin:20px auto;}
-.btn-main:hover{background-color: #ff9b3f;color: #ffffff;}
-.btn-main1{color: #ffffff;background-color: #800000;font-size:1.2em;padding:10px 20px;margin: 20px auto;}
-.btn-main1:hover{background-color: #FF0000;color: #ffffff;}
+.btn-main{color: #ffffff;background-color: #590057;font-size:50px;font-weight:700;padding:20px 40px;margin:20px auto;}
+.btn-main:hover{background-color: #89107F;color: #ffffff;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);}
+.btn-main1{color: #ffffff;background-color: #590057;font-size:1.2em;padding:10px 20px;margin: 20px auto;}
+.btn-main1:hover{background-color: #89107F;color: #ffffff;}
 .btn-main2{font-size:1.8em;padding:10px 20px;margin:auto;}
 
 .btn-link{font-size: 1.2em;margin-bottom: 30px;}
