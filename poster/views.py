@@ -14,7 +14,7 @@ from django.contrib.auth import authenticate,login
 from .models import UserProfile,ArtistProfile,CustomerProfile,Category,poster,tags
 from django.core.mail import send_mail,mail_managers
 from django.conf import settings
-from .forms import SearchForm,PosterForm,RegistrationForm
+from .forms import SearchForm,PosterForm,RegistrationForm,ContactForm
 from django.shortcuts import get_object_or_404, redirect
 from django.template.response import TemplateResponse
 from payments import get_payment_model, RedirectNeeded
@@ -240,7 +240,6 @@ def PosterUpload(request):
 		form=PosterForm(request.POST,request.FILES)
 		user=UserProfile.objects.get(user=request.user)
 		if form.is_valid():
-			Cat=form.cleaned_data['category']
 			desc=form.cleaned_data['description']
 			Title=form.cleaned_data['title']
 			imag1=form.cleaned_data['image1']
@@ -248,10 +247,12 @@ def PosterUpload(request):
 			imag3=form.cleaned_data['image3']
 			post=poster.objects.create(
 				user=request.user,
-				category=Cat,
+				category='all',
 				title=Title,
 				description=desc,
-				image1=imag1
+				image1=imag1,
+				image2=imag2,
+				imag3=imag3,
 			)
 			if tags.objects.filter(title=form.cleaned_data['tags']) is False:
 				tag=tags.objects.create(
@@ -438,7 +439,7 @@ def cart(request):
 				dic[i]=dic[i]+1
 			except:
 				dic[i]=1
-		print dic[2]
+
 		design=poster.objects.filter(pk__in=x[1:])
 		temp=0
 		return render(request,'poster/cart.html',{'anime':design,'dic':dic,'x':temp})
@@ -452,3 +453,36 @@ def order(request):
 def allDesigns(request):
 	Category = poster.objects.all()
 	return render(request, 'poster/progress.html', {'anime': Category})
+
+login_required()
+def all(request):
+	Category=poster.objects.filter(user=request.user)
+
+def about(request):
+	return render(request,'poster/about.html')
+
+def bulk(request):
+	return render(request,'poster/bulk.html')
+def contanct(request):
+	if request.method=="POST":
+		form=ContactForm(request.POST)
+		if form.is_valid():
+			name=form.cleaned_data['Name']
+			email=form.cleaned_data['Email']
+			phone=form.cleaned_data['Phone']
+			subject=form.cleaned_data['Subject']
+			description=form.cleaned_data['Description']
+			from_email = settings.EMAIL_HOST_USER
+			to_email = "info@kalacircle.com"
+
+			send_mail(
+				subject,
+				name + email+ phone+ description,
+				from_email,
+				[to_email],
+				fail_silently=False
+			)
+			return redirect('/poster/contact')
+	else:
+		form=ContactForm()
+		return render(request,'poster/contact.html',{'form':form})

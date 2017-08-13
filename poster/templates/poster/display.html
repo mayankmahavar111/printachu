@@ -1,6 +1,5 @@
 {%extends 'poster/base.html'%}
 {% block body %}
-<!DOCTYPE html>
 <head>
 {% load static %}
     <meta charset="utf-8">
@@ -102,22 +101,29 @@
         font-size: 2rem;
     }
     h1, .h1 {
-    font-size: 5rem;
+    font-size: 4.75rem;
 }
     h6, .h6 {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
     h3, .h3 {
-    font-size: 3rem;
+    font-size: 2.75rem;
 }
     h4, .h4 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
 }
 </style>
 </head>
-
 <body style="font-size: 2rem;">
         {% csrf_token %}
+<<<<<<< HEAD
+=======
+<div>
+
+    </ul>
+        </form>
+</div>
+>>>>>>> origin/master
 
     {% for c in poster %}
   <div class="py-5">
@@ -244,12 +250,12 @@ function size_change(size1) {
               <li>Rounded Neck</li>
               <li>Regular-Fit</li>
               <li>Half-sleeved</li>
-              <li>No Rubber Prints</li>
+              <li>Screen Print</li>
             </ul>
           </div>
           <div class="row btn-section">
-            <div class="btn btn-main btn-lg">Add to Cart</div>
-            <div class="btn btn-main btn-lg">Buy now</div>
+              <div class="btn btn-main btn-lg"><a href="/poster/cart" style="color: white">Add to Cart</a></div>
+            <div class="btn btn-main btn-lg">Buy Now</div>
           </div>
         </div>
       </div>

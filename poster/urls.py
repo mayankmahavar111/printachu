@@ -14,6 +14,7 @@ urlpatterns=[
     url(r'designs/$',views.allDesigns),
     url(r'^buildprofile/$',views.createprofile),
     url(r'^category/$',views.category),
+    url(r'^allDesigns/$',views.all),
     url(r'^category/anime/$',views.anime),
     url(r'^category/people/$',views.people),
     url(r'^category/movies/$',views.movies),
@@ -26,5 +27,9 @@ urlpatterns=[
     url(r'^display/(?P<id>[0-9]{1,10})/$',views.display),
     url(r'^order/$',views.order),
     url(r'^cart/$',views.cart),
+    url(r'^bulkorder/$',views.bulk),
+    url(r'^about/$',views.about),
+    url(r'^contact/$',views.contanct),
+
    # url(r'^oauth/',include('paytmoauth.urls')),
 ]
